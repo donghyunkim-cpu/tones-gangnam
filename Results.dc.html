@@ -53,6 +53,8 @@ img{max-width:100%}
 @keyframes imgIn{from{opacity:0;transform:translateY(18px) scale(1.015)}to{opacity:1;transform:none}}
 @keyframes softIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+@media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
+@media (max-width:759px){[data-tap]{position:relative}[data-tap]::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}}
 </style>
 <script src="count-up.js"></script>
 </helmet>
@@ -141,7 +143,7 @@ img{max-width:100%}
 
   <section data-screen-label="How to read" style="background:#1C1A18;color:#F7F3EC;border-radius:8px 8px 0 0;padding:clamp(60px,7vw,116px) clamp(20px,5vw,64px)">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
-      <div style="position:sticky;top:clamp(78px,9vw,112px)">
+      <div data-sticky-col style="position:sticky;top:clamp(78px,9vw,112px)">
         <p style="margin:0 0 10px;font-size:12.5px;color:rgba(247,243,236,.72)">How to read these</p>
         <h2 style="animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 6% cover 28%;margin:0;font-weight:200;font-size:clamp(28px,3.4vw,52px);line-height:1.06;letter-spacing:-.028em;max-width:13ch;text-wrap:balance">Most before-and-afters are lighting</h2>
         <p style="animation:rise 1s cubic-bezier(.16,1,.3,1) .1s both;animation-timeline:view();animation-range:entry 4% cover 26%;margin:20px 0 0;font-size:15px;line-height:1.7;color:rgba(247,243,236,.78);max-width:36ch">Four things make a comparison honest. If a clinic's photos fail any of them, you are looking at a photograph, not a result.</p>
@@ -166,7 +168,7 @@ img{max-width:100%}
           <p style="margin:0;font-size:15px;line-height:1.7;color:#4A443D;max-width:42ch">Send three photos and Dr. Yang will tell you which of these cases your face resembles — and where it does not.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:26px;align-items:center">
             <a href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:#1C1A18;color:#F7F3EC;border-radius:999px;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#A8103E;color:#FFFFFF;gap:16px">Request a consultation <span>→</span></a>
-            <a href="Reviews.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">Read patient reviews <span>→</span></a>
+            <a data-tap href="Reviews.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">Read patient reviews <span>→</span></a>
           </div>
         </div>
       </div>

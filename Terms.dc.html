@@ -27,6 +27,7 @@ a:hover{color:#A8103E}
 @keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
 @keyframes ruleGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+@media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
 </style>
 </helmet>
 
@@ -51,7 +52,7 @@ a:hover{color:#A8103E}
   <section data-screen-label="Terms" style="padding:0 clamp(20px,5vw,64px) clamp(60px,7vw,116px)">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
 
-      <nav aria-label="Articles" style="position:sticky;top:clamp(78px,9vw,112px)">
+      <nav data-sticky-col aria-label="Articles" style="position:sticky;top:clamp(78px,9vw,112px)">
         <p style="margin:0 0 16px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">Articles</p>
         <sc-for list="{{ toc }}" as="t" hint-placeholder-count="14">
           <a href="{{ t.href }}" style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #E3DACD;font-size:13.5px;color:#4A443D;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#A8103E"><span style="color:#6C645B;flex:0 0 auto">{{ t.no }}</span><span>{{ t.title }}</span></a>
@@ -81,9 +82,9 @@ a:hover{color:#A8103E}
         </section>
 
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(30px,3.4vw,48px)">
-          <a href="Privacy Consent Modal.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Privacy &amp; consent <span>→</span></a>
-          <a href="Non-covered Fees.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Non-covered treatment fees <span>→</span></a>
-          <a href="Terms Ko.dc.html" lang="ko" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">한국어 원문 <span>→</span></a>
+          <a href="Privacy-Consent-Modal.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Privacy &amp; consent <span>→</span></a>
+          <a href="Non-covered-Fees.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Non-covered treatment fees <span>→</span></a>
+          <a href="Terms-Ko.dc.html" lang="ko" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">한국어 원문 <span>→</span></a>
         </div>
       </div>
     </div>
@@ -92,7 +93,7 @@ a:hover{color:#A8103E}
   <section data-screen-label="Footer" style="background:#1C1A18;color:#F7F3EC;padding:clamp(52px,6vw,88px) clamp(20px,5vw,64px) clamp(48px,5vw,76px)">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center">
       <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:16px;width:auto">
-      <a href="Tones Gangnam Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
+      <a href="Tones-Gangnam-Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
       <a href="Treatments.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Treatments</a>
       <a href="Book.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Request a consultation</a>
       <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.78);margin-left:auto;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">02-6953-2667</a>

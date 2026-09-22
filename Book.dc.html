@@ -55,6 +55,7 @@ input::placeholder,textarea::placeholder{color:#A89C8C}
 @keyframes imgIn{from{opacity:0;transform:translateY(18px) scale(1.015)}to{opacity:1;transform:none}}
 @keyframes softIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+@media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
 </style>
 <script src="count-up.js"></script>
 </helmet>
@@ -99,7 +100,7 @@ input::placeholder,textarea::placeholder{color:#A89C8C}
 
         <sc-if value="{{ editing }}" hint-placeholder-val="{{ true }}">
           <div>
-            <div style="position:sticky;top:clamp(70px,8vw,100px);z-index:5;display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,2.6vw,36px);padding:12px 16px;background:rgba(247,243,236,.92);backdrop-filter:blur(10px);border:1px solid #E3DACD;border-radius:999px">
+            <div data-sticky-col style="position:sticky;top:clamp(70px,8vw,100px);z-index:5;display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,2.6vw,36px);padding:12px 16px;background:rgba(247,243,236,.92);backdrop-filter:blur(10px);border:1px solid #E3DACD;border-radius:999px">
               <span style="flex:1;height:3px;border-radius:999px;background:#E3DACD;overflow:hidden"><span style="{{ progFill }}"></span></span>
               <span style="font-size:11.5px;color:#6C645B;white-space:nowrap">{{ progLabel }}</span>
             </div>
@@ -157,7 +158,7 @@ input::placeholder,textarea::placeholder{color:#A89C8C}
         </sc-if>
       </div>
 
-      <div style="position:sticky;top:clamp(78px,9vw,112px)">
+      <div data-sticky-col style="position:sticky;top:clamp(78px,9vw,112px)">
         <div style="background:#1C1A18;color:#F7F3EC;border-radius:8px;padding:clamp(24px,2.8vw,38px)">
           <p style="margin:0 0 18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,243,236,.66)">What happens next</p>
           <div style="display:grid;grid-template-columns:26px 1fr;gap:14px;padding:14px 0;border-top:1px solid rgba(247,243,236,.2)"><span style="font-size:12.5px;color:rgba(232,136,159,.72)">01</span><span><span style="display:block;font-size:15px">He reads your inquiry</span><span style="display:block;font-size:13.5px;line-height:1.6;color:rgba(247,243,236,.72);margin-top:3px">Personally — and asks for photos on the channel you chose.</span></span></div>
@@ -207,7 +208,7 @@ input::placeholder,textarea::placeholder{color:#A89C8C}
     </div>
   </section>
 
-  <dc-import name="Privacy Consent Modal" open="{{ policyOpen }}" onClose="{{ closePolicy }}" hint-size="100%,0px"></dc-import>
+  <dc-import name="Privacy-Consent-Modal" open="{{ policyOpen }}" onClose="{{ closePolicy }}" hint-size="100%,0px"></dc-import>
 
   <div data-mobile-bar style="{{ barStyle }}">
       <a href="tel:+82-2-6953-2667" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;background:#F7F3EC;color:#1C1A18;border-radius:999px;font-size:12.5px;font-weight:500">Call</a>

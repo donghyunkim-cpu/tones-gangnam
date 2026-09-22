@@ -29,6 +29,7 @@ input::placeholder{color:#A89C8C}
 @keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
 @keyframes ruleGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+@media (max-width:759px){[data-tap]{position:relative}[data-tap]::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}}
 </style>
 </helmet>
 
@@ -146,7 +147,7 @@ input::placeholder{color:#A89C8C}
         <p style="margin:0;font-size:15px;line-height:1.8;color:#4A443D;max-width:42ch">The table gives ranges; how much you actually need cannot be judged without seeing your face. Send three photos and Dr. Yang answers himself, in English, within 24 hours.</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:26px;align-items:center">
           <a href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:#1C1A18;color:#F7F3EC;border-radius:999px;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#A8103E;color:#FFFFFF;gap:16px">Request a consultation <span>→</span></a>
-          <a href="tel:+82-2-6953-2667" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">02-6953-2667 <span>→</span></a>
+          <a data-tap href="tel:+82-2-6953-2667" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">02-6953-2667 <span>→</span></a>
         </div>
       </div>
     </div>
@@ -155,10 +156,10 @@ input::placeholder{color:#A89C8C}
   <section data-screen-label="Footer" style="background:#1C1A18;color:#F7F3EC;padding:clamp(52px,6vw,88px) clamp(20px,5vw,64px) clamp(48px,5vw,76px)">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center">
       <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:16px;width:auto">
-      <a href="Tones Gangnam Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
+      <a href="Tones-Gangnam-Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
       <a href="Terms.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Terms of Service</a>
-      <a href="Privacy Consent Modal.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Privacy &amp; consent</a>
-      <a href="Non-covered Fees Ko.dc.html" lang="ko" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">한국어 원문</a>
+      <a href="Privacy-Consent-Modal.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Privacy &amp; consent</a>
+      <a href="Non-covered-Fees-Ko.dc.html" lang="ko" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">한국어 원문</a>
       <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.78);margin-left:auto;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">02-6953-2667</a>
     </div>
   </section>

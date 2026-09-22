@@ -67,6 +67,8 @@ details[open]>p{animation:faqIn .4s cubic-bezier(.16,1,.3,1) both}
 @keyframes imgIn{from{opacity:0;transform:translateY(18px) scale(1.015)}to{opacity:1;transform:none}}
 @keyframes softIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+@media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
+@media (max-width:759px){[data-tap]{position:relative}[data-tap]::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}}
 </style>
 <script src="count-up.js"></script>
 </helmet>
@@ -178,7 +180,7 @@ details[open]>p{animation:faqIn .4s cubic-bezier(.16,1,.3,1) both}
 
   <section data-screen-label="Aftercare" style="background:#EDE5D9;color:#1C1A18;padding:clamp(60px,7vw,116px) clamp(20px,5vw,64px)">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
-      <div style="position:sticky;top:clamp(78px,9vw,112px)">
+      <div data-sticky-col style="position:sticky;top:clamp(78px,9vw,112px)">
         <p style="margin:0 0 10px;font-size:12.5px;color:#6C645B">After you fly home</p>
         <h2 style="animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 6% cover 28%;margin:0;font-weight:200;font-size:clamp(28px,3.4vw,52px);line-height:1.06;letter-spacing:-.028em;max-width:13ch;text-wrap:balance">The part most clinics stop doing</h2>
         <p style="animation:rise 1s cubic-bezier(.16,1,.3,1) .1s both;animation-timeline:view();animation-range:entry 4% cover 26%;margin:20px 0 0;font-size:15px;line-height:1.7;color:#4A443D;max-width:36ch">Distance is the real risk in medical travel — not the treatment. So the follow-up is part of the plan rather than sold as an extra.</p>
@@ -194,10 +196,10 @@ details[open]>p{animation:faqIn .4s cubic-bezier(.16,1,.3,1) both}
 
   <section data-screen-label="FAQ" style="background:#1C1A18;color:#F7F3EC;border-radius:8px 8px 0 0;padding:clamp(60px,7vw,116px) clamp(20px,5vw,64px)">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
-      <div style="position:sticky;top:clamp(78px,9vw,112px)">
+      <div data-sticky-col style="position:sticky;top:clamp(78px,9vw,112px)">
         <p style="margin:0 0 10px;font-size:12.5px;color:rgba(247,243,236,.72)">Questions</p>
         <h2 style="animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 6% cover 28%;margin:0;font-weight:200;font-size:clamp(28px,3.4vw,52px);line-height:1.06;letter-spacing:-.028em;max-width:11ch;text-wrap:balance">Asked before booking a flight</h2>
-        <a href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:14.5px;color:#F7F3EC;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#E8889F">Ask Dr. Yang directly <span>→</span></a>
+        <a data-tap href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:14.5px;color:#F7F3EC;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#E8889F">Ask Dr. Yang directly <span>→</span></a>
       </div>
       <div>
         <details style="border-top:1px solid rgba(247,243,236,.2)">
@@ -231,7 +233,7 @@ details[open]>p{animation:faqIn .4s cubic-bezier(.16,1,.3,1) both}
       <p style="animation:rise 1s cubic-bezier(.16,1,.3,1) .1s both;animation-timeline:view();animation-range:entry 4% cover 26%;margin:22px 0 0;font-size:15px;line-height:1.7;color:#4A443D;max-width:46ch">Three photos and your travel window are enough. Dr. Yang replies with what fits those days and what does not; fees are confirmed when you come in.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(32px,4vw,48px);align-items:center">
         <a href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:#1C1A18;color:#F7F3EC;border-radius:999px;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#A8103E;color:#FFFFFF;gap:16px">Send your photos <span>→</span></a>
-        <a href="Treatments.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:#1C1A18;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">All treatments <span>→</span></a>
+        <a data-tap href="Treatments.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:#1C1A18;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">All treatments <span>→</span></a>
       </div>
       <div style="margin-top:clamp(44px,5vw,72px);padding-top:22px;border-top:1px solid #E3DACD;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center">
         <img src="assets/logo-h.png" alt="TONE's CLINIC" style="height:16px;width:auto">
