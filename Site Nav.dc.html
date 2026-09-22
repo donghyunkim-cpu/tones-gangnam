@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+:where(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline:2px solid #A8103E;outline-offset:3px;border-radius:6px}
+:lang(ko),[lang="ko"]{word-break:keep-all}
+img{max-width:100%}
+@media (max-width:1079px){[data-nav-wide]{display:none !important}}
+@media (min-width:1080px){[data-nav-narrow]{display:none !important}}
+@media (max-width:639px){[data-nav-tablet-book]{display:none !important}}
+@media (max-width:1079px){[data-nav-narrow] a,[data-nav-narrow] button{min-height:44px}}
+@keyframes navDrop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes navFade{from{opacity:0}to{opacity:1}}
+@keyframes contactIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="font-family:'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.01em">
+
+  <header onMouseLeave="{{ closeDrop }}" style="{{ barStyle }}">
+    <div style="max-width:1720px;margin:0 auto;padding:0 clamp(16px,3vw,40px);height:64px;display:flex;align-items:center;gap:clamp(14px,2.4vw,40px)">
+      <a href="Tones Gangnam Home.dc.html" style="flex:0 0 auto;display:block"><img decoding="async" fetchpriority="high" src="{{ logoSrc }}" alt="TONE's CLINIC" style="height:17px;width:auto;display:block"></a>
+
+      <nav data-nav-wide style="display:flex;align-items:center;gap:clamp(12px,1.7vw,26px);margin-left:clamp(8px,2vw,28px);flex-wrap:nowrap">
+          <a href="Doctor.dc.html" style="{{ linkDoctor }}">Doctor</a>
+          <button onMouseEnter="{{ openDrop }}" onClick="{{ toggleDrop }}" style="{{ linkTreat }}">Treatments <span style="{{ caretStyle }}"></span></button>
+          <a href="Results.dc.html" style="{{ linkResults }}">Results</a>
+          <a href="International.dc.html" style="{{ linkIntl }}">International</a>
+          <a href="Reviews.dc.html" style="{{ linkReviews }}">Reviews</a>
+          <a href="Book.dc.html" style="{{ linkVisit }}">Visit</a>
+        </nav>
+      <div data-nav-wide style="display:flex;align-items:center;gap:10px;margin-left:auto;flex:0 0 auto">
+          <div style="{{ pillWrap }}">
+            <button onClick="{{ setEn }}" title="{{ enTitle }}" style="{{ enPill }}">EN</button>
+            <button onClick="{{ setKo }}" title="{{ koTitle }}" style="{{ koPill }}">KO</button>
+          </div>
+          <button onClick="{{ openContact }}" style="{{ contactStyle }}">Contact</button>
+          <a href="Book.dc.html" style="{{ bookStyle }}">Enquire <span>→</span></a>
+      </div>
+
+      <div data-nav-narrow style="display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto">
+        <a data-nav-tablet-book href="Book.dc.html" style="{{ bookStyle }}">Enquire <span>→</span></a>
+        <button onClick="{{ toggleMenu }}" style="{{ menuBtn }}">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">Menu</span>
+          <span style="display:flex;flex-direction:column;gap:3.5px"><span style="{{ barLine }}"></span><span style="{{ barLine }}"></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div style="{{ progressTrack }}"><div style="{{ progressFill }}"></div></div>
+
+    <sc-if value="{{ dropOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="{{ dropStyle }}">
+        <div style="max-width:1720px;margin:0 auto;padding:clamp(18px,2vw,26px) clamp(16px,3vw,40px) clamp(22px,2.4vw,32px)">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px">
+            <span style="{{ dropLabel }}">Five routes · one doctor</span>
+            <a href="Treatments.dc.html" style="{{ dropAll }}">All treatments <span>→</span></a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+            <a href="Filler Lifting.dc.html" style="{{ dropCard }}">
+              <img loading="lazy" decoding="async" src="assets/tx-profile.jpg" alt="" style="background-image:url(assets/thumb-tx-profile.jpg);background-size:cover;background-position:center;width:100%;height:96px;object-fit:cover;object-position:56% 26%;border-radius:6px;display:block">
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px"><span style="{{ dropTitle }}">Filler Design</span><span style="{{ dropArrow }}">→</span></span>
+              <span style="{{ dropDesc }}">Ligament lifting, contour, tear trough</span>
+            </a>
+            <a href="Injectables.dc.html" style="{{ dropCard }}">
+              <img loading="lazy" decoding="async" src="assets/tx-droplet.jpg" alt="" style="background-image:url(assets/thumb-tx-droplet.jpg);background-size:cover;background-position:center;width:100%;height:96px;object-fit:cover;border-radius:6px;display:block">
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px"><span style="{{ dropTitle }}">Injectables</span><span style="{{ dropArrow }}">→</span></span>
+              <span style="{{ dropDesc }}">Botulinum, Rejuran, lip</span>
+            </a>
+            <a href="Lifting Devices.dc.html" style="{{ dropCard }}">
+              <img loading="lazy" decoding="async" src="assets/tx-silk.jpg" alt="" style="background-image:url(assets/thumb-tx-silk.jpg);background-size:cover;background-position:center;width:100%;height:96px;object-fit:cover;border-radius:6px;display:block">
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px"><span style="{{ dropTitle }}">Lifting &amp; Tightening</span><span style="{{ dropArrow }}">→</span></span>
+              <span style="{{ dropDesc }}">Ulthera, Thermage, Titanium, threads</span>
+            </a>
+            <a href="Metacell.dc.html" style="{{ dropCard }}">
+              <img loading="lazy" decoding="async" src="assets/tx-droplet.jpg" alt="" style="background-image:url(assets/thumb-tx-droplet.jpg);background-size:cover;background-position:center;width:100%;height:96px;object-fit:cover;object-position:60% 40%;border-radius:6px;display:block">
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px"><span style="{{ dropTitle }}">Metacell</span><span style="{{ dropArrow }}">→</span></span>
+              <span style="{{ dropDesc }}">Your own exosomes, activated</span>
+            </a>
+            <a href="Skin and Laser.dc.html" style="{{ dropCard }}">
+              <img loading="lazy" decoding="async" src="assets/tx-light.jpg" alt="" style="background-image:url(assets/thumb-tx-light.jpg);background-size:cover;background-position:center;width:100%;height:96px;object-fit:cover;border-radius:6px;display:block">
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px"><span style="{{ dropTitle }}">Skin &amp; Laser</span><span style="{{ dropArrow }}">→</span></span>
+              <span style="{{ dropDesc }}">Pigment, redness, texture</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:95;background:#1C1A18;color:#F7F3EC;overflow-y:auto;animation:navFade .28s ease both;padding:clamp(16px,3vw,40px)">
+      <div style="display:flex;align-items:center;justify-content:space-between;height:40px;margin-bottom:28px">
+        <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:17px;width:auto">
+        <button onClick="{{ toggleMenu }}" style="display:inline-flex;align-items:center;height:34px;padding:0 15px;background:rgba(247,243,236,.12);border:none;border-radius:999px;cursor:pointer;font-family:inherit;color:#F7F3EC;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">Close ×</button>
+      </div>
+      <p style="margin:0 0 12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,243,236,.6)">Treatments</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
+        <a href="Filler Lifting.dc.html" onClick="{{ toggleMenu }}" style="display:flex;gap:14px;align-items:center;background:#262320;border-radius:8px;padding:10px;transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#332F2A">
+          <img loading="lazy" decoding="async" src="assets/tx-profile.jpg" alt="" style="background-image:url(assets/thumb-tx-profile.jpg);background-size:cover;background-position:center;width:74px;height:56px;object-fit:cover;object-position:56% 26%;border-radius:6px;flex:0 0 auto">
+          <span style="flex:1;min-width:0;font-size:15px;color:#F7F3EC">Filler Design</span><span style="font-size:14.5px;color:#F7F3EC">→</span>
+        </a>
+        <a href="Injectables.dc.html" onClick="{{ toggleMenu }}" style="display:flex;gap:14px;align-items:center;background:#262320;border-radius:8px;padding:10px;transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#332F2A">
+          <img loading="lazy" decoding="async" src="assets/tx-droplet.jpg" alt="" style="background-image:url(assets/thumb-tx-droplet.jpg);background-size:cover;background-position:center;width:74px;height:56px;object-fit:cover;border-radius:6px;flex:0 0 auto">
+          <span style="flex:1;min-width:0;font-size:15px;color:#F7F3EC">Injectables</span><span style="font-size:14.5px;color:#F7F3EC">→</span>
+        </a>
+        <a href="Lifting Devices.dc.html" onClick="{{ toggleMenu }}" style="display:flex;gap:14px;align-items:center;background:#262320;border-radius:8px;padding:10px;transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#332F2A">
+          <img loading="lazy" decoding="async" src="assets/tx-silk.jpg" alt="" style="background-image:url(assets/thumb-tx-silk.jpg);background-size:cover;background-position:center;width:74px;height:56px;object-fit:cover;border-radius:6px;flex:0 0 auto">
+          <span style="flex:1;min-width:0;font-size:15px;color:#F7F3EC">Lifting &amp; Tightening</span><span style="font-size:14.5px;color:#F7F3EC">→</span>
+        </a>
+        <a href="Metacell.dc.html" onClick="{{ toggleMenu }}" style="display:flex;gap:14px;align-items:center;background:#262320;border-radius:8px;padding:10px;transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#332F2A">
+          <img loading="lazy" decoding="async" src="assets/tx-droplet.jpg" alt="" style="background-image:url(assets/thumb-tx-droplet.jpg);background-size:cover;background-position:center;width:74px;height:56px;object-fit:cover;object-position:60% 40%;border-radius:6px;flex:0 0 auto">
+          <span style="flex:1;min-width:0;font-size:15px;color:#F7F3EC">Metacell</span><span style="font-size:14.5px;color:#F7F3EC">→</span>
+        </a>
+        <a href="Skin and Laser.dc.html" onClick="{{ toggleMenu }}" style="display:flex;gap:14px;align-items:center;background:#262320;border-radius:8px;padding:10px;transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#332F2A">
+          <img loading="lazy" decoding="async" src="assets/tx-light.jpg" alt="" style="background-image:url(assets/thumb-tx-light.jpg);background-size:cover;background-position:center;width:74px;height:56px;object-fit:cover;border-radius:6px;flex:0 0 auto">
+          <span style="flex:1;min-width:0;font-size:15px;color:#F7F3EC">Skin &amp; Laser</span><span style="font-size:14.5px;color:#F7F3EC">→</span>
+        </a>
+      </div>
+      <p style="margin:28px 0 12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,243,236,.6)">The clinic</p>
+      <nav style="display:flex;flex-direction:column">
+        <a href="Doctor.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Doctor</a>
+        <a href="Results.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Results</a>
+        <a href="International.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">International</a>
+        <a href="Reviews.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Reviews</a>
+        <a href="Tones Gangnam Home.dc.html#space" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">The space</a>
+        <a href="Book.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);border-bottom:1px solid rgba(247,243,236,.16);color:#F7F3EC">Request a consultation</a>
+      </nav>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:26px;padding-top:18px;border-top:1px solid rgba(247,243,236,.16)">
+        <a href="Terms.dc.html" onClick="{{ toggleMenu }}" style="font-size:12.5px;color:rgba(247,243,236,.6);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Terms of Service</a>
+        <a href="Privacy Consent Modal.dc.html" onClick="{{ toggleMenu }}" style="font-size:12.5px;color:rgba(247,243,236,.6);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Privacy &amp; consent</a>
+        <a href="Non-covered Fees.dc.html" onClick="{{ toggleMenu }}" style="font-size:12.5px;color:rgba(247,243,236,.6);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Non-covered fees</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px;align-items:center">
+        <a href="Book.dc.html" onClick="{{ toggleMenu }}" style="display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 24px;background:#F7F3EC;color:#1C1A18;border-radius:999px;font-size:13.5px;font-weight:500">Request a consultation <span>→</span></a>
+        <button onClick="{{ openContactFromMenu }}" style="display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 24px;background:transparent;color:#F7F3EC;border:1px solid rgba(247,243,236,.4);border-radius:999px;font-family:inherit;font-size:13.5px;cursor:pointer">Contact us</button>
+        <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.8)">02-6953-2667</a>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ contactOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeContact }}" style="position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(28,26,24,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:navFade .24s ease both">
+      <div onClick="{{ stop }}" role="dialog" aria-modal="true" aria-label="Contact TONE's Clinic Gangnam" style="width:min(100%,640px);max-height:88dvh;overflow-y:auto;background:#F7F3EC;border-radius:14px;padding:clamp(22px,3vw,34px);box-shadow:0 30px 80px rgba(28,26,24,.36);animation:contactIn .36s cubic-bezier(.16,1,.3,1) both">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6C645B">Contact us</p>
+            <h2 style="margin:0;font-weight:200;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.025em;color:#1C1A18">Pick the app you already use</h2>
+          </div>
+          <button onClick="{{ closeContact }}" aria-label="Close" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #E3DACD;border-radius:999px;background:transparent;cursor:pointer;font-family:inherit;font-size:15px;color:#1C1A18;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC">✕</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:clamp(20px,2.4vw,28px)">
+          <a href="tel:+82-2-6953-2667" style="{{ chCall }}"><span style="font-size:17px;line-height:1">☎</span><span style="{{ chLabel }}">Call</span><span style="{{ chSub }}">02-6953-2667</span></a>
+          <a href="https://lin.ee/hcpjDjp" target="_blank" rel="noopener" style="{{ chLine }}"><span style="font-size:17px;line-height:1">◗</span><span style="{{ chLabel }}">LINE</span><span style="{{ chSub }}">Global</span></a>
+          <a href="https://talk.naver.com/w4pdms?frm=mnmb" target="_blank" rel="noopener" style="{{ chNaver }}"><span style="font-size:17px;line-height:1">N</span><span style="{{ chLabel }}">Naver Talk</span><span style="{{ chSub }}">한국어</span></a>
+          <a href="https://weixin.qq.com/r/Tonesclinic" target="_blank" rel="noopener" style="{{ chWechat }}"><span style="font-size:17px;line-height:1">✆</span><span style="{{ chLabel }}">WeChat</span><span style="{{ chSub }}">中文</span></a>
+          <a href="https://wa.me/message/WFMF3D2AHY3NC1" target="_blank" rel="noopener" style="{{ chWhats }}"><span style="font-size:17px;line-height:1">✆</span><span style="{{ chLabel }}">WhatsApp</span><span style="{{ chSub }}">English</span></a>
+          <a href="https://pf.kakao.com/_HZdxin/chat" target="_blank" rel="noopener" style="{{ chKakao }}"><span style="font-size:17px;line-height:1">✦</span><span style="{{ chLabel }}">KakaoTalk</span><span style="{{ chSub }}">한국어</span></a>
+        </div>
+        <div style="margin-top:clamp(20px,2.4vw,28px);padding-top:18px;border-top:1px solid #E3DACD">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 24px">
+            <div><span style="display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">Weekdays</span><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:#1C1A18;margin-top:2px">10:00 – 20:30</span></div>
+            <div><span style="display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">Sat, Sun &amp; holidays</span><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:#1C1A18;margin-top:2px">10:00 – 16:30</span></div>
+          </div>
+          <p style="margin:14px 0 0;font-size:13.5px;line-height:1.65;color:#4A443D">Open through lunch, seven days a week. 서울 서초구 강남대로 403, 9F — Gangnam Station Exit 10.</p>
+          <a href="Book.dc.html" onClick="{{ closeContact }}" style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;height:48px;padding:0 24px;background:#1C1A18;color:#F7F3EC;border-radius:999px;font-size:13.5px;font-weight:500;text-decoration:none;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#A8103E;color:#FFFFFF;gap:16px">Or send photos for a written plan <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:320},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;over-dark&quot;,&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'over-dark' | 'light' | 'dark'&quot;,&quot;section&quot;:&quot;Nav&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;doctor&quot;,&quot;treatments&quot;,&quot;filler&quot;,&quot;injectables&quot;,&quot;devices&quot;,&quot;metacell&quot;,&quot;laser&quot;,&quot;results&quot;,&quot;international&quot;,&quot;reviews&quot;,&quot;visit&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Nav&quot;}}">
+class Component extends DCLogic {
+  state = { narrow: false, tablet: false, scrolled: false, dropOpen: false, menuOpen: false, contactOpen: false, progress: 0 };
+
+  constructor(p) {
+    super(p);
+    this.mq = window.matchMedia ? window.matchMedia('(max-width: 1079px)') : null;
+    this.mqTablet = window.matchMedia ? window.matchMedia('(min-width: 640px) and (max-width: 1079px)') : null;
+    if (this.mq) {
+      this.state = { ...this.state, narrow: this.mq.matches, tablet: this.mqTablet ? this.mqTablet.matches : false };
+    }
+    this.onResize = () => {
+      const n = this.mq ? this.mq.matches : window.innerWidth < 1080;
+      // 640–1079: room for a Book pill beside Menu; below that the bottom bar covers it
+      const t = this.mqTablet ? this.mqTablet.matches : (n && window.innerWidth >= 640);
+      if (n !== this.state.narrow || t !== this.state.tablet) this.setState({ narrow: n, tablet: t, dropOpen: false });
+    };
+    this.onScroll = () => {
+      const y = window.scrollY || 0;
+      const h = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const s = y > 90;
+      const pr = Math.min(1, y / h);
+      if (s !== this.state.scrolled || Math.abs(pr - this.state.progress) > 0.004) {
+        this.setState({ scrolled: s, progress: pr });
+      }
+    };
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, dropOpen: false, contactOpen: false }); };
+  }
+
+  componentDidMount() {
+    this.onResize();
+    this.onScroll();
+    window.addEventListener('resize', this.onResize);
+    if (this.mq && this.mq.addEventListener) {
+      this.mq.addEventListener('change', this.onResize);
+      if (this.mqTablet) this.mqTablet.addEventListener('change', this.onResize);
+    }
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKey);
+    if (window.ResizeObserver) {
+      this.ro = new ResizeObserver(this.onResize);
+      this.ro.observe(document.body);
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    if (this.mq && this.mq.removeEventListener) {
+      this.mq.removeEventListener('change', this.onResize);
+      if (this.mqTablet) this.mqTablet.removeEventListener('change', this.onResize);
+    }
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  // legal documents exist in both languages; everything else is English only
+  pageFile() {
+    try { return decodeURIComponent((window.location.pathname.split('/').pop() || '')); } catch (e) { return ''; }
+  }
+  koSibling() {
+    const f = this.pageFile();
+    if (!f || / Ko\.dc\.html$/.test(f)) return null;
+    const m = { 'Terms.dc.html': 'Terms Ko.dc.html',
+                'Non-covered Fees.dc.html': 'Non-covered Fees Ko.dc.html',
+                'Privacy Consent Modal.dc.html': 'Privacy Consent Ko.dc.html' };
+    return m[f] || null;
+  }
+  enSibling() {
+    const f = this.pageFile();
+    const m = { 'Terms Ko.dc.html': 'Terms.dc.html',
+                'Non-covered Fees Ko.dc.html': 'Non-covered Fees.dc.html',
+                'Privacy Consent Ko.dc.html': 'Privacy Consent Modal.dc.html' };
+    return m[f] || null;
+  }
+
+  renderVals() {
+    const { narrow, tablet, scrolled, dropOpen, menuOpen, progress } = this.state;
+    const isKo = / Ko\.dc\.html$/.test(this.pageFile());
+    const theme = this.props.theme ?? 'light';
+    const active = this.props.active ?? '';
+    // "over-dark" pages open on a dark hero: bar starts transparent with white ink,
+    // then resolves to the ivory bar once the hero is behind you.
+    const onDark = theme === 'over-dark' ? !scrolled : theme === 'dark';
+    const ink = onDark ? '#FFFFFF' : '#1C1A18';
+    const muted = onDark ? 'rgba(255,255,255,.82)' : '#4A443D';
+    const hair = onDark ? 'rgba(255,255,255,.22)' : '#E3DACD';
+
+    let bg = 'transparent', blur = 'none', border = '1px solid transparent';
+    if (!onDark || theme === 'dark') {
+      bg = theme === 'dark' ? 'rgba(28,26,24,.9)' : 'rgba(247,243,236,.9)';
+      blur = 'blur(14px)';
+      border = '1px solid ' + hair;
+    }
+
+    const link = (key) => {
+      const on = active === key;
+      return 'font-size:13.5px;font-weight:' + (on ? '500' : '400') + ';letter-spacing:.015em;white-space:nowrap;'
+        + 'color:' + (on ? (onDark ? '#FFFFFF' : '#A8103E') : muted) + ';'
+        + 'padding:7px 0;border-bottom:1px solid ' + (on ? '#A8103E' : 'transparent') + ';'
+        + 'text-decoration:none;background:none;border-left:none;border-right:none;border-top:none;'
+        + 'font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:5px;';
+    };
+
+    const pill = (on) => 'padding:5px 11px;border:none;border-radius:999px;cursor:pointer;font-family:inherit;font-size:10.5px;font-weight:500;letter-spacing:.12em;'
+      + (on ? (onDark ? 'background:#FFFFFF;color:#1C1A18;' : 'background:#1C1A18;color:#F7F3EC;')
+            : 'background:transparent;color:' + muted + ';');
+
+    const treatActive = ['filler', 'injectables', 'devices', 'metacell', 'laser', 'treatments'].indexOf(active) > -1;
+
+    // each channel keeps its own brand colour so the grid is scannable at a glance
+    const channel = (bg, fg) => 'display:flex;flex-direction:column;gap:7px;justify-content:flex-end;'
+      + 'min-height:104px;padding:14px 13px;border-radius:10px;text-decoration:none;'
+      + 'background:' + bg + ';color:' + fg + ';'
+      + 'transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .28s ease';
+
+    return {
+      narrow,
+      tablet,
+      dropOpen,
+      menuOpen,
+      logoSrc: onDark ? 'assets/logo-h-wh.png' : 'assets/logo-h.png',
+      barStyle: 'position:relative;background:' + bg + ';backdrop-filter:' + blur
+        + ';-webkit-backdrop-filter:' + blur + ';border-bottom:' + border
+        + ';transition:background .45s ease,border-color .45s ease',
+      linkDoctor: link('doctor'),
+      linkResults: link('results'),
+      linkIntl: link('international'),
+      linkReviews: link('reviews'),
+      linkVisit: link('visit'),
+      linkTreat: link(treatActive ? active : 'x') + (treatActive ? '' : ''),
+      // a hairline chevron drawn from two borders, not a glyph — it inherits the link colour
+      caretStyle: 'display:inline-block;width:5px;height:5px;margin:-3px 1px 0 1px;flex:0 0 auto;'
+        + 'border-right:1px solid currentColor;border-bottom:1px solid currentColor;'
+        + 'transition:transform .35s cubic-bezier(.16,1,.3,1);'
+        + 'transform:rotate(' + (dropOpen ? '225deg' : '45deg') + ') translateZ(0)',
+      pillWrap: 'display:flex;align-items:center;border:1px solid ' + hair + ';border-radius:999px;padding:2px;flex:0 0 auto',
+      // the toggle navigates between language siblings; it is dimmed where only one exists
+      enPill: pill(!isKo) + (this.enSibling() ? '' : 'opacity:.4;cursor:default;'),
+      koPill: pill(isKo) + (this.koSibling() ? '' : 'opacity:.4;cursor:default;'),
+      koTitle: this.koSibling() ? '한국어로 보기' : 'Korean version available for legal documents',
+      enTitle: this.enSibling() ? 'View in English' : 'English',
+      bookStyle: 'display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 20px;border-radius:999px;font-size:12.5px;font-weight:500;white-space:nowrap;text-decoration:none;'
+        + (onDark ? 'background:#F7F3EC;color:#1C1A18;' : 'background:#1C1A18;color:#F7F3EC;'),
+      menuBtn: 'display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border:none;border-radius:999px;cursor:pointer;font-family:inherit;'
+        + (onDark ? 'background:rgba(28,26,24,.8);color:#FFFFFF;' : 'background:#1C1A18;color:#FFFFFF;'),
+      barLine: 'display:block;width:15px;height:1px;background:currentColor',
+      progressTrack: 'position:absolute;left:0;right:0;bottom:-1px;height:1px;background:transparent;overflow:hidden',
+      progressFill: 'height:1px;background:#A8103E;transform-origin:left;transform:scaleX(' + progress.toFixed(3) + ')',
+      dropStyle: 'position:absolute;left:0;right:0;top:100%;background:' + (theme === 'dark' ? 'rgba(28,26,24,.97)' : 'rgba(247,243,236,.97)')
+        + ';backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid ' + (theme === 'dark' ? 'rgba(247,243,236,.16)' : '#E3DACD')
+        + ';animation:navDrop .35s cubic-bezier(.16,1,.3,1) both',
+      dropLabel: 'font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:' + (theme === 'dark' ? 'rgba(247,243,236,.66)' : '#6C645B'),
+      dropAll: 'display:inline-flex;align-items:center;gap:8px;font-size:12.5px;text-decoration:none;color:' + (theme === 'dark' ? '#F7F3EC' : '#1C1A18'),
+      dropCard: 'display:block;padding:10px;border-radius:8px;text-decoration:none;background:' + (theme === 'dark' ? 'rgba(247,243,236,.06)' : '#EDE5D9'),
+      dropTitle: 'flex:1;font-size:15px;font-weight:400;color:' + (theme === 'dark' ? '#F7F3EC' : '#1C1A18'),
+      dropArrow: 'font-size:13.5px;color:' + (theme === 'dark' ? '#F7F3EC' : '#1C1A18'),
+      dropDesc: 'display:block;margin-top:4px;font-size:12.5px;line-height:1.5;color:' + (theme === 'dark' ? 'rgba(247,243,236,.7)' : '#4A443D'),
+      contactOpen: this.state.contactOpen,
+      contactStyle: 'display:inline-flex;align-items:center;height:' + (narrow ? '44px' : '38px')
+        + ';padding:0 17px;border-radius:999px;font-family:inherit;font-size:12.5px;font-weight:500;'
+        + 'white-space:nowrap;cursor:pointer;background:transparent;'
+        + 'transition:background .25s ease,color .25s ease;'
+        + 'border:1px solid ' + hair + ';color:' + ink,
+      chCall: channel('#A8103E', '#FFFFFF'),
+      chLine: channel('#06C755', '#FFFFFF'),
+      chNaver: channel('#22B25A', '#FFFFFF'),
+      chWechat: channel('#2DC100', '#FFFFFF'),
+      chWhats: channel('#128C7E', '#FFFFFF'),
+      chKakao: channel('#FEE500', '#1C1A18'),
+      chLabel: 'display:block;font-size:14.5px;font-weight:500;line-height:1.2',
+      chSub: 'display:block;font-size:11px;line-height:1.3;opacity:.85',
+      openContact: () => this.setState({ contactOpen: true, dropOpen: false }),
+      openContactFromMenu: () => this.setState({ contactOpen: true, menuOpen: false }),
+      closeContact: () => this.setState({ contactOpen: false }),
+      stop: (e) => e.stopPropagation(),
+      openDrop: () => this.setState({ dropOpen: true }),
+      closeDrop: () => this.setState({ dropOpen: false }),
+      toggleDrop: () => this.setState(s => ({ dropOpen: !s.dropOpen })),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen, dropOpen: false })),
+      setEn: () => { const en = this.enSibling(); if (en) window.location.href = en; },
+      setKo: () => { const ko = this.koSibling(); if (ko) window.location.href = ko; }
+    };
+  }
+}
+</script>
+</body>
+</html>

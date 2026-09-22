@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Non-covered treatment fees — TONE's Clinic Gangnam</title>
+<meta name="description" content="Published fee schedule for non-covered treatments at TONE’s Clinic Gangnam — lasers, injectables, skincare, antioxidant therapy, cosmetics and certificate fees. Last updated 28 May 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Hanken+Grotesk:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F3EC;-webkit-font-smoothing:antialiased}
+a{color:#1C1A18;text-decoration:none}
+a:hover{color:#A8103E}
+::selection{background:#A8103E;color:#F7F3EC}
+::-webkit-scrollbar{height:5px;width:6px}
+::-webkit-scrollbar-thumb{background:#DFD4C4;border-radius:999px}
+input:focus{outline:none;border-color:#1C1A18}
+input::placeholder{color:#A89C8C}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes ruleGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+</style>
+</helmet>
+
+<div style="font-family:'Hanken Grotesk',system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;animation:pageIn .46s cubic-bezier(.16,1,.3,1) both;background:#F7F3EC;color:#1C1A18;overflow-x:clip;letter-spacing:.005em;word-break:keep-all">
+
+  <dc-import name="Site Nav" theme="light" active="" hint-size="100%,64px" style="position:sticky;top:0;z-index:80"></dc-import>
+
+  <section data-screen-label="Hero" style="padding:clamp(44px,6vw,88px) clamp(20px,5vw,64px) clamp(26px,3vw,42px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6C645B">Non-covered fees</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,60px);align-items:end">
+        <h1 style="margin:0;font-weight:200;font-size:clamp(34px,5vw,80px);line-height:1.04;letter-spacing:-.035em;max-width:11ch"><span style="display:block;overflow:hidden;padding-bottom:.24em;margin-bottom:-.24em"><span style="display:block;animation:lineUp 1.2s cubic-bezier(.16,1,.3,1) .1s both">Non-covered</span></span><span style="display:block;overflow:hidden;padding-bottom:.24em;margin-bottom:-.24em"><span style="display:block;animation:lineUp 1.2s cubic-bezier(.16,1,.3,1) .22s both">treatment fees</span></span></h1>
+        <div style="animation:rise 1s cubic-bezier(.16,1,.3,1) .35s both">
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#4A443D;max-width:44ch">Published in accordance with Article 45 of the Medical Service Act and Article 42-2 of its Enforcement Rule. The figures below are the upper and lower bounds for each item; what you actually pay depends on the area treated, the volume injected and the number of shots.</p>
+          <p style="margin:14px 0 0;font-size:13.5px;color:#6C645B">Last updated 28 May 2026</p>
+        </div>
+      </div>
+      <div style="height:1px;background:#E3DACD;margin-top:clamp(28px,3.2vw,46px);transform-origin:left;animation:ruleGrow 1.4s cubic-bezier(.16,1,.3,1) .5s both"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Filter" style="padding:0 clamp(20px,5vw,64px) clamp(20px,2.4vw,32px);position:sticky;top:clamp(56px,7vw,64px);z-index:40;background:#F7F3EC">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:14px;border-bottom:1px solid #E3DACD">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+        <button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+      <label style="margin-left:auto;display:flex;align-items:center;gap:8px;flex:0 1 240px">
+        <input onInput="{{ onSearch }}" type="search" placeholder="Search treatments" aria-label="Search treatments" style="width:100%;height:40px;padding:0 15px;border:1px solid #DFD4C4;border-radius:999px;background:#FFFFFF;font-size:13.5px;color:#1C1A18;font-family:inherit">
+      </label>
+    </div>
+  </section>
+
+  <section data-screen-label="Fees" style="padding:0 clamp(20px,5vw,64px) clamp(60px,7vw,116px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <p style="margin:0 0 16px;font-size:12.5px;color:#6C645B">{{ countLabel }}</p>
+
+      <div style="border:1px solid #E3DACD;border-radius:8px;overflow:hidden;background:#FFFFFF">
+        <div style="{{ headRow }}">
+          <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6C645B">Treatment</span>
+          <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6C645B">Unit</span>
+          <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6C645B;text-align:right">From</span>
+          <span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6C645B;text-align:right">Up to</span>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+          <div style="{{ r.rowStyle }};transition:background .28s cubic-bezier(.16,1,.3,1)" style-hover="background:rgba(168,16,62,.04)">
+            <span>
+              <span style="display:block;font-size:14.5px;line-height:1.5">{{ r.name }}</span>
+              <span style="display:block;font-size:12px;color:#8C8378;margin-top:3px">{{ r.cat }}</span>
+              <sc-if value="{{ r.hasNote }}" hint-placeholder-val="{{ false }}">
+                <span style="display:block;font-size:12px;line-height:1.5;color:#8C8378;margin-top:4px">{{ r.note }}</span>
+              </sc-if>
+            </span>
+            <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:13px;color:#4A443D">{{ r.unit }}</span>
+            </sc-if>
+            <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:13.5px;color:#6C645B;text-align:right;white-space:nowrap">{{ r.min }}</span>
+            </sc-if>
+            <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:14.5px;text-align:right;white-space:nowrap">{{ r.max }}</span>
+            </sc-if>
+            <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+              <span style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;text-align:right">
+                <span style="font-size:14.5px;line-height:1.35">{{ r.range }}</span>
+                <span style="font-size:12px;color:#8C8378">{{ r.unit }}</span>
+              </span>
+            </sc-if>
+          </div>
+        </sc-for>
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:clamp(28px,3.4vw,48px);text-align:center">
+            <p style="margin:0;font-size:14.5px;color:#6C645B">No matching item. Try another name, or call <a href="tel:+82-2-6953-2667" style="border-bottom:1px solid #DFD4C4">02-6953-2667</a>.</p>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(18px,2.2vw,32px);margin-top:clamp(30px,3.4vw,48px)">
+        <div style="flex:1 1 260px;min-width:0;padding-top:18px;border-top:1px solid #E3DACD">
+          <h2 style="margin:0 0 8px;font-size:15px;font-weight:400">These are bounds, not a single price</h2>
+          <p style="margin:0;font-size:13.5px;line-height:1.75;color:#4A443D">"Up to" is the published maximum for that item and "From" is the minimum. What is charged falls between the two, according to the scope of treatment.</p>
+        </div>
+        <div style="flex:1 1 260px;min-width:0;padding-top:18px;border-top:1px solid #E3DACD">
+          <h2 style="margin:0 0 8px;font-size:15px;font-weight:400">Materials and medication included</h2>
+          <p style="margin:0;font-size:13.5px;line-height:1.75;color:#4A443D">Every treatment item in this schedule includes the cost of materials and medication. No separate materials charge is added.</p>
+        </div>
+        <div style="flex:1 1 260px;min-width:0;padding-top:18px;border-top:1px solid #E3DACD">
+          <h2 style="margin:0 0 8px;font-size:15px;font-weight:400">Your figure is confirmed at the clinic</h2>
+          <p style="margin:0;font-size:13.5px;line-height:1.75;color:#4A443D">What you need depends on your skin and the plan agreed with Dr. Yang. The final figure is explained after examination, and treatment begins only once you accept it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Certificates" style="background:#EDE5D9;padding:clamp(60px,7vw,116px) clamp(20px,5vw,64px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <p style="margin:0 0 10px;font-size:12.5px;color:#6C645B">Certificates</p>
+      <h2 style="margin:0;font-weight:200;font-size:clamp(28px,3.4vw,52px);line-height:1.08;letter-spacing:-.028em;animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 6% cover 28%">Document issuing fees</h2>
+      <div style="margin-top:clamp(26px,3vw,44px);max-width:640px">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-top:1px solid #CFC3B2"><span style="font-size:15px">Medical record <span style="font-size:12.5px;color:#6C645B">per page</span></span><span style="font-size:15px">₩1,000</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-top:1px solid #CFC3B2"><span style="font-size:15px">Itemised billing statement <span style="font-size:12.5px;color:#6C645B">per page</span></span><span style="font-size:15px">₩3,000</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-top:1px solid #CFC3B2"><span style="font-size:15px">Certificate of treatment <span style="font-size:12.5px;color:#6C645B">per page</span></span><span style="font-size:15px">₩3,000</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-top:1px solid #CFC3B2;border-bottom:1px solid #CFC3B2"><span style="font-size:15px">Referral letter <span style="font-size:12.5px;color:#6C645B">per page</span></span><span style="font-size:15px">₩15,000</span></div>
+      </div>
+      <p style="margin:18px 0 0;font-size:13.5px;color:#6C645B">Last updated 28 May 2026</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Contact" style="padding:clamp(60px,7vw,116px) clamp(20px,5vw,64px) clamp(52px,6vw,84px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(26px,4vw,64px);align-items:end">
+      <div>
+        <p style="margin:0 0 10px;font-size:12.5px;color:#6C645B">Asking about cost</p>
+        <h2 style="margin:0;font-weight:200;font-size:clamp(28px,3.4vw,52px);line-height:1.06;letter-spacing:-.028em;max-width:14ch;text-wrap:balance">Ask what your own face needs</h2>
+      </div>
+      <div>
+        <p style="margin:0;font-size:15px;line-height:1.8;color:#4A443D;max-width:42ch">The table gives ranges; how much you actually need cannot be judged without seeing your face. Send three photos and Dr. Yang answers himself, in English, within 24 hours.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:26px;align-items:center">
+          <a href="Book.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;background:#1C1A18;color:#F7F3EC;border-radius:999px;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#A8103E;color:#FFFFFF;gap:16px">Request a consultation <span>→</span></a>
+          <a href="tel:+82-2-6953-2667" style="display:inline-flex;align-items:center;gap:10px;font-size:14.5px;white-space:nowrap;transition:gap .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1)" style-hover="gap:16px;color:#A8103E">02-6953-2667 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer" style="background:#1C1A18;color:#F7F3EC;padding:clamp(52px,6vw,88px) clamp(20px,5vw,64px) clamp(48px,5vw,76px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center">
+      <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:16px;width:auto">
+      <a href="Tones Gangnam Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
+      <a href="Terms.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Terms of Service</a>
+      <a href="Privacy Consent Modal.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Privacy &amp; consent</a>
+      <a href="Non-covered Fees Ko.dc.html" lang="ko" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">한국어 원문</a>
+      <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.78);margin-left:auto;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">02-6953-2667</a>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+// [category, name, unit, upper bound, lower bound, note code]
+const D = [
+  ['laser','Mole removal (1mm)','1 session',10000,100,'A'],
+  ['laser','Milia / wart (facial)','each',15000,15000,'A'],
+  ['laser','Skin tag (facial)','each',30000,30000,'A'],
+  ['laser','Flat wart','each',15000,15000,'A'],
+  ['laser','Lentigo removal','1 session',250000,150000,'A'],
+  ['laser','Zoom Pass (blemishes / freckles)','1 session',150000,100000,'A'],
+  ['laser','Pico toning','1 session',150000,50000,'A'],
+  ['laser','Pico body toning','6 sessions',140000,75000,'A'],
+  ['laser','Derma V rejuvenation (basic)','1 session',100000,100000,'B'],
+  ['laser','Derma V redness (dual-wavelength toning)','1 session',129000,129000,'B'],
+  ['laser','Tattoo removal','1cm',20000,10000,'A'],
+  ['laser','Capillaries (Derma V)','1 session',129000,99000,'A'],
+  ['laser','Post-inflammatory redness (Derma V)','1 session',100000,50000,'A'],
+  ['laser','Shurink Universe','1 session (300 shots)',130000,99000,'C'],
+  ['laser','Option: Shurink Aurora ampoule','1 session (300 shots)',30000,30000,'C'],
+  ['laser','Ulthera Prime','1 session (300 shots)',1350000,1100000,'C'],
+  ['laser','Ulthera Prime, eye area','1 session',450000,450000,'C'],
+  ['laser','InMode FX','1 session',180000,15000,'C'],
+  ['laser','InMode, body','1 session',100000,99000,'C'],
+  ['laser','Onda','1 session (80,000 lines)',700000,430000,'C'],
+  ['laser','Onda, body','1 session (80,000 lines)',620000,550000,'C'],
+  ['laser','Titanium Lifting, basic','1 session',650000,450000,'C'],
+  ['laser','Titanium Lifting, premium','1 session',790000,650000,'C'],
+  ['laser','Oligio','1 session (300 shots)',370000,320000,'C'],
+  ['laser','Volnewmer','1 session (300 shots)',370000,320000,'C'],
+  ['laser','Volnewmer, eye area','1 session (200 shots)',370000,370000,'C'],
+  ['laser','Thermage FLX','1 session (600 shots)',2500000,1990000,'C'],
+  ['laser','Thermage FLX, eye area','1 session (225 shots)',800000,800000,'C'],
+  ['laser','Potenza, skin','1 session',290000,290000,'C'],
+  ['laser','Potenza, pumping','1 session',390000,390000,'C'],
+  ['laser','Potenza Diamond','1 session (500 shots)',450000,450000,'C'],
+  ['laser','Noble Shape','1 session (20 min)',70000,70000,'D'],
+  ['laser','Accu toning (acne)','1 session',70000,65000,'D'],
+  ['laser','Pico Fraxel','1 session',150000,99000,'D'],
+  ['laser','Fraxel, butterfly zone','1 session',55000,55000,'D'],
+  ['laser','Agnes','1 session',200000,200000,'D'],
+  ['laser','Apogee Plus, full face (excl. forehead & nose)','1 session',60000,5000,'A'],
+  ['laser','Apogee Plus (jaw, nose, cheeks, upper lip, sideburns)','1 session',60000,60000,'A'],
+
+  ['inject','Mint thread','per thread',70000,70000,'E'],
+  ['inject','Volume thread','per thread',150000,150000,'E'],
+  ['inject','Rejuran HB','1 session (1cc)',160000,160000,'E'],
+  ['inject','Rejuran Healer','1 session (2cc)',200000,145000,'E'],
+  ['inject','Rejuran Eye','1 session (1cc)',140000,89000,'E'],
+  ['inject','Filorga','1 session (3cc)',150000,120000,'D'],
+  ['inject','Radiesse','1 syringe',900000,900000,'D'],
+  ['inject','Juvelook Skin','1 session',350000,120000,'E'],
+  ['inject','Wrinkle botulinum (forehead, glabella, nose, crow’s feet, under-eye, chin)','1 session (2 areas)',90000,19000,'F'],
+  ['inject','Botulinum: hyperhidrosis / salivary gland / temporalis','1 session (50u)',170000,50000,'F'],
+  ['inject','Botulinum: mouth corner / cheekbone / gummy smile / nose / nasolabial','1 session',80000,25000,'F'],
+  ['inject','Botulinum: calf / trapezius','1 session (100u)',60000,59000,'F'],
+  ['inject','Botulinum, body','1 session (100u)',60000,59000,'F'],
+  ['inject','Lip filler (Artiere)','1cc (Artiere)',140000,140000,'F'],
+  ['inject','Revive','1cc',390000,350000,'E'],
+  ['inject','Sculptra','1 session (1 vial)',990000,690000,'E'],
+  ['inject','Hyaluronic acid injection','1 session (2.5cc)',100000,100000,'E'],
+  ['inject','Autologous PRP','1 session',300000,300000,'D'],
+  ['inject','Melasma injection','2 sessions (4cc)',150000,150000,'D'],
+  ['inject','Metafit (Wegovy)','1 pen (0.25)',490000,490000,'E'],
+  ['inject','Bodyfit injection','1 session (40cc)',70000,70000,'D'],
+  ['inject','Jeomeongfat injection','1 session (12cc)',99000,99000,'D'],
+  ['inject','Contour injection (T-Accu)','1 session (6cc)',20000,14900,'D'],
+  ['inject','Contour injection (T-Nos)','1 session (6cc)',50000,24900,'D'],
+  ['inject','Slimline injection','1 session (500cc)',100000,100000,'D'],
+  ['inject','Slimline Plus injection','1 session (500cc)',139000,139000,'D'],
+  ['inject','Spot high-volume lipolysis injection','1 session (100cc)',39000,39000,'D'],
+  ['inject','Deoxycholic acid lipolysis','1 session (1 vial 2cc)',200000,169000,'E'],
+  ['inject','Anti-inflammatory injection','1 session',11000,11000,'D'],
+
+  ['skin','PDRN','1 session (1cc)',50000,50000,'E'],
+  ['skin','Skin botulinum (Multox)','1 session',75000,75000,'D'],
+  ['skin','Rejuran skin booster','1 session (3cc)',125000,89000,'D'],
+  ['skin','Exosome','1 session',300000,250000,'D'],
+  ['skin','Aladdin peel','1 session',100000,100000,'G'],
+  ['skin','Skin programme (scaling, vitamin, cryocell, regeneration, green/black/oxygen/aqua peel)','1 session',45000,45000,'D'],
+  ['skin','Skincare (Lara peel, Multox, full-face extraction, pink peel, O2 derm, plasma peel, Intense Ultra 12min)','1 session',75000,75000,'D'],
+  ['skin','Option: steamer / X-lotion / O2 derm','1 session',15000,15000,'D'],
+  ['skin','Extraction','each',10000,10000,'D'],
+  ['skin','Platinum PTT','1 session',220000,189000,'D'],
+  ['skin','PDT','1 session',90000,90000,'D'],
+  ['skin','Intense Ultra','1 session (5 min)',75000,75000,'H'],
+
+  ['anti','Glutathione injection','1 session',25000,25000,'D'],
+  ['anti','Cindella injection','1 session',25000,25000,'D'],
+  ['anti','Vitamin C & D','1 session',25000,25000,'D'],
+  ['anti','Vitamin B1','1 session',25000,25000,'D'],
+  ['anti','Placenta injection','1 session',25000,25000,'D'],
+  ['anti','Thymosin injection','1 session',45000,45000,'D'],
+  ['anti','High-dose arginine','1 session',59000,59000,'D'],
+  ['anti','Gardasil','1 session',200000,200000,'D'],
+
+  ['cosm','Dr. Tone’s One Pack','each',2500,2500,''],
+  ['cosm','Dr. Tone’s cleansing cream','each',42000,42000,''],
+  ['cosm','Dr. Tone’s foam cleanser','each',33000,33000,''],
+  ['cosm','Dr. Tone’s Waterful toner','each',42000,42000,''],
+  ['cosm','Dr. Tone’s repair cream','each',30000,30000,''],
+  ['cosm','Dr. Tone’s sunscreen','each',30000,30000,''],
+  ['cosm','Dr. Tone’s moisture balm','each',5000,5000,'']
+];
+
+const NOTES = {
+  A: 'Varies with the area treated and how widely it is spread.',
+  B: 'Varies with the skincare programme chosen.',
+  C: 'Varies with the number of shots.',
+  D: 'Varies with the type selected.',
+  E: 'Varies with the volume injected.',
+  F: 'Varies with the type, volume and area.',
+  G: 'Physical peel for back, chest and legs; varies with the area covered.',
+  H: 'Varies with the number of sessions.'
+};
+
+const CAT_LABEL = { laser: 'Laser & lifting', inject: 'Injectable', skin: 'Skincare', anti: 'Antioxidant', cosm: 'Cosmetics' };
+
+const TABS = [
+  ['all', 'All'], ['laser', 'Laser & lifting'], ['inject', 'Injectables'],
+  ['skin', 'Skincare'], ['anti', 'Antioxidant'], ['cosm', 'Cosmetics']
+];
+
+const WIDE = 'display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,.9fr) minmax(0,.8fr) minmax(0,.8fr);gap:10px 18px;';
+// below 760px the four tracks cannot hold a price, so name and fees stack
+const NARROW = 'display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;';
+
+class Component extends DCLogic {
+  state = { tab: 'all', q: '', narrow: false };
+
+  constructor(p) {
+    super(p);
+    this.mq = window.matchMedia ? window.matchMedia('(max-width: 759px)') : null;
+    if (this.mq) this.state = { ...this.state, narrow: this.mq.matches };
+    this.onResize = () => {
+      const n = this.mq ? this.mq.matches : window.innerWidth < 760;
+      if (n !== this.state.narrow) this.setState({ narrow: n });
+    };
+  }
+
+  componentDidMount() {
+    this.onResize();
+    if (this.mq) this.mq.addEventListener('change', this.onResize);
+    window.addEventListener('resize', this.onResize);
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.onResize);
+    window.removeEventListener('resize', this.onResize);
+  }
+
+  won(n) { return '\u20a9' + n.toLocaleString('en-US'); }
+
+  pill(on) {
+    return 'padding:9px 16px;border-radius:999px;cursor:pointer;font-size:12.5px;font-weight:400;white-space:nowrap;font-family:inherit;'
+      + 'transition:background .2s ease,color .2s ease,border-color .2s ease;'
+      + (on ? 'background:#1C1A18;color:#F7F3EC;border:1px solid #1C1A18;' : 'background:transparent;color:#4A443D;border:1px solid #DFD4C4;');
+  }
+
+  renderVals() {
+    const { tab, q, narrow } = this.state;
+    const term = q.trim();
+    const list = D
+      .filter(r => tab === 'all' || r[0] === tab)
+      .filter(r => !term || r[1].includes(term));
+    const GRID = narrow ? NARROW : WIDE;
+
+    return {
+      narrow,
+      wide: !narrow,
+      headRow: GRID + 'padding:13px clamp(14px,1.8vw,24px);background:#EDE5D9;align-items:center'
+        + (narrow ? ';display:none' : ''),
+      tabs: TABS.map(([id, label]) => ({
+        label, style: this.pill(tab === id), go: () => this.setState({ tab: id })
+      })),
+      onSearch: (e) => this.setState({ q: e.target.value }),
+      countLabel: list.length + ' item' + (list.length === 1 ? '' : 's') + (term ? ' matching "' + term + '"' : ''),
+      empty: list.length === 0,
+      rows: list.map(([cat, name, unit, max, min, note]) => ({
+        name, unit,
+        cat: CAT_LABEL[cat] || cat,
+        note: NOTES[note] || '',
+        hasNote: !!NOTES[note],
+        min: min === max ? '—' : this.won(min),
+        max: this.won(max),
+        range: min === max ? this.won(max) : this.won(min) + ' – ' + this.won(max),
+        rowStyle: GRID + 'padding:clamp(14px,1.6vw,20px) clamp(14px,1.8vw,24px);border-top:1px solid #E3DACD;align-items:start;transition:background .22s ease'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>이용약관 — 톤즈의원 강남점</title>
+<meta name="description" content="톤즈의원 강남점 홈페이지 및 온라인 서비스 이용약관. 2026년 9월 22일 시행.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Hanken+Grotesk:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F3EC;-webkit-font-smoothing:antialiased}
+a{color:#1C1A18;text-decoration:none}
+a:hover{color:#A8103E}
+::selection{background:#A8103E;color:#F7F3EC}
+::-webkit-scrollbar{height:5px;width:6px}
+::-webkit-scrollbar-thumb{background:#DFD4C4;border-radius:999px}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes ruleGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+</style>
+</helmet>
+
+<div lang="ko" style="font-family:'Hanken Grotesk',system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;animation:pageIn .46s cubic-bezier(.16,1,.3,1) both;background:#F7F3EC;color:#1C1A18;overflow-x:clip;letter-spacing:.005em;word-break:keep-all">
+
+  <dc-import name="Site Nav" theme="light" active="" hint-size="100%,64px" style="position:sticky;top:0;z-index:80"></dc-import>
+
+  <section data-screen-label="Hero" style="padding:clamp(44px,6vw,88px) clamp(20px,5vw,64px) clamp(26px,3vw,42px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6C645B">Terms of service</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,60px);align-items:end">
+        <h1 style="margin:0;font-weight:200;font-size:clamp(40px,6.4vw,104px);line-height:1;letter-spacing:-.04em;overflow:hidden;padding-bottom:.24em;margin-bottom:-.24em"><span style="display:block;animation:lineUp 1.2s cubic-bezier(.16,1,.3,1) .1s both">이용약관</span></h1>
+        <div style="animation:rise 1s cubic-bezier(.16,1,.3,1) .35s both">
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#4A443D;max-width:46ch">본 약관은 톤즈의원 강남점이 운영하는 홈페이지 및 온라인 서비스의 이용과 관련하여 의원과 이용자 간의 권리·의무 및 책임사항을 규정합니다.</p>
+          <p style="margin:14px 0 0;font-size:13.5px;color:#6C645B">시행일 2026년 9월 22일</p>
+        </div>
+      </div>
+      <div style="height:1px;background:#E3DACD;margin-top:clamp(28px,3.2vw,46px);transform-origin:left;animation:ruleGrow 1.4s cubic-bezier(.16,1,.3,1) .5s both"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Terms" style="padding:0 clamp(20px,5vw,64px) clamp(60px,7vw,116px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
+
+      <nav aria-label="조항 목록" style="position:sticky;top:clamp(78px,9vw,112px)">
+        <p style="margin:0 0 16px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">조항</p>
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="14">
+          <a href="{{ t.href }}" style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #E3DACD;font-size:13.5px;color:#4A443D;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#A8103E"><span style="color:#6C645B;flex:0 0 auto">{{ t.no }}</span><span>{{ t.title }}</span></a>
+        </sc-for>
+      </nav>
+
+      <div style="max-width:70ch">
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="14">
+          <section id="{{ a.id }}" style="padding-top:clamp(26px,3vw,40px);scroll-margin-top:96px">
+            <h2 style="margin:0;font-weight:300;font-size:clamp(20px,2vw,28px);line-height:1.3;letter-spacing:-.02em">{{ a.heading }}</h2>
+            <sc-for list="{{ a.body }}" as="b" hint-placeholder-count="3">
+              <p style="{{ b.style }}">{{ b.text }}</p>
+            </sc-for>
+          </section>
+        </sc-for>
+
+        <section style="margin-top:clamp(40px,5vw,72px);background:#EDE5D9;border-radius:8px;padding:clamp(24px,2.8vw,38px)">
+          <h2 style="margin:0;font-weight:300;font-size:clamp(20px,2vw,28px);letter-spacing:-.02em">부칙</h2>
+          <p style="margin:14px 0 0;font-size:15px;line-height:1.8;color:#4A443D">본 약관은 2026년 9월 22일부터 시행합니다.</p>
+          <div style="margin-top:26px;padding-top:20px;border-top:1px solid #DFD4C4">
+            <p style="margin:0 0 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">톤즈의원 강남점</p>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">대표자</span><span style="font-size:14.5px">양재영</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">사업자등록번호</span><span style="font-size:14.5px">480-71-00623</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">주소</span><span style="font-size:14.5px">서울특별시 서초구 강남대로 403, 9층</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">대표전화</span><a href="tel:+82-2-6953-2667" style="font-size:14.5px">02-6953-2667</a></div>
+          </div>
+        </section>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(30px,3.4vw,48px)">
+          <a href="Privacy Consent Ko.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">개인정보 수집·이용 동의 <span>→</span></a>
+          <a href="Non-covered Fees Ko.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">비급여 진료비용 고지 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer" style="background:#1C1A18;color:#F7F3EC;padding:clamp(52px,6vw,88px) clamp(20px,5vw,64px) clamp(48px,5vw,76px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center">
+      <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:16px;width:auto">
+      <a href="Tones Gangnam Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">홈으로</a>
+      <a href="Terms.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">English</a>
+      <a href="Treatments.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">시술 안내</a>
+      <a href="Book.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">상담 문의</a>
+      <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.78);margin-left:auto;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">02-6953-2667</a>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const P  = 'margin:14px 0 0;font-size:15px;line-height:1.85;color:#4A443D';
+const LI = 'margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.8;color:#4A443D;text-indent:-20px';
+
+const ARTICLES = [
+  ['제1조', '목적', [
+    ['p', '본 약관은 톤즈의원 강남점(이하 "의원")이 운영하는 홈페이지 및 온라인 서비스(이하 "서비스")의 이용과 관련하여 의원과 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.']
+  ]],
+  ['제2조', '정의', [
+    ['p', '본 약관에서 사용하는 용어의 정의는 다음과 같습니다.'],
+    ['li', '1. "홈페이지"란 의원이 이용자에게 의료정보, 시술정보, 상담 및 예약 등의 서비스를 제공하기 위하여 운영하는 온라인 웹사이트를 의미합니다.'],
+    ['li', '2. "이용자"란 본 홈페이지에 접속하여 본 약관에 따라 의원이 제공하는 서비스를 이용하는 자를 의미합니다.'],
+    ['li', '3. "예약 서비스"란 이용자가 홈페이지를 통해 진료 또는 상담을 신청할 수 있도록 제공되는 서비스를 의미합니다.'],
+    ['li', '4. 본 약관에서 별도로 정의하지 않은 용어는 관련 법령 및 일반적인 상관례에 따릅니다.']
+  ]],
+  ['제3조', '약관의 효력 및 변경', [
+    ['p', '① 본 약관은 홈페이지에 게시하거나 기타 방법으로 이용자에게 공지함으로써 효력이 발생합니다.'],
+    ['p', '② 의원은 관련 법령을 위반하지 않는 범위에서 본 약관을 변경할 수 있습니다.'],
+    ['p', '③ 약관을 변경하는 경우 적용일자 및 변경 내용을 홈페이지를 통해 사전에 공지합니다. 다만, 이용자에게 불리한 중요한 내용의 변경이 있는 경우에는 관련 법령이 정하는 방법과 기간에 따라 공지합니다.'],
+    ['p', '④ 변경된 약관은 적용일자 이후 서비스를 이용하는 경우 적용됩니다.']
+  ]],
+  ['제4조', '서비스의 제공', [
+    ['p', '의원은 홈페이지를 통해 다음과 같은 서비스를 제공할 수 있습니다.'],
+    ['li', '1. 의원 및 의료진에 관한 정보 제공'],
+    ['li', '2. 진료 및 시술에 관한 정보 제공'],
+    ['li', '3. 비급여 진료비용 및 이벤트 정보 제공'],
+    ['li', '4. 온라인 진료·상담 예약 신청'],
+    ['li', '5. 상담 및 문의 접수'],
+    ['li', '6. 공지사항 및 콘텐츠 제공'],
+    ['li', '7. 기타 의원이 정하는 서비스'],
+    ['p', '홈페이지에서 제공되는 의료 및 시술 관련 정보는 일반적인 정보 제공을 목적으로 하며, 의료진의 직접적인 진료·상담을 대체하지 않습니다.']
+  ]],
+  ['제5조', '예약 서비스', [
+    ['p', '① 이용자는 홈페이지에서 의원이 정한 절차에 따라 상담 또는 진료 예약을 신청할 수 있습니다.'],
+    ['p', '② 홈페이지를 통한 예약 신청은 실제 진료 또는 시술의 확정을 의미하지 않을 수 있으며, 의원의 예약 확인 및 안내 절차를 거쳐 최종 확정될 수 있습니다.'],
+    ['p', '③ 예약 일정은 의료진의 진료 일정, 병원 운영 상황 등에 따라 변경될 수 있으며 필요한 경우 의원은 이용자에게 별도로 안내할 수 있습니다.'],
+    ['p', '④ 이용자가 예약 내용을 변경하거나 취소하고자 하는 경우 의원이 안내하는 방법을 통해 변경 또는 취소할 수 있습니다.']
+  ]],
+  ['제6조', '의료정보에 관한 사항', [
+    ['p', '① 홈페이지에 게재되는 시술, 치료, 의료기기 및 기타 의료 관련 정보는 이용자의 이해를 돕기 위한 일반적인 정보입니다.'],
+    ['p', '② 동일한 시술 또는 치료라도 개인의 피부 상태, 건강 상태, 병력, 시술 부위 및 기타 조건에 따라 적용 가능 여부와 결과가 달라질 수 있습니다.'],
+    ['p', '③ 구체적인 진단, 치료 방법, 시술 여부 및 예상되는 결과는 의료진과의 상담 및 진료를 통해 결정되어야 합니다.'],
+    ['p', '④ 홈페이지에 게시된 내용만을 근거로 이용자가 임의로 의료적 판단을 하거나 치료를 중단·변경해서는 안 되며, 필요한 경우 의료진의 전문적인 상담을 받아야 합니다.']
+  ]],
+  ['제7조', '서비스의 변경 및 중단', [
+    ['p', '① 의원은 운영상 또는 기술상의 필요가 있는 경우 서비스의 전부 또는 일부를 변경할 수 있습니다.'],
+    ['p', '② 다음 각 호에 해당하는 경우 서비스 제공이 일시적으로 제한 또는 중단될 수 있습니다.'],
+    ['li', '1. 홈페이지 및 시스템의 점검·보수·교체가 필요한 경우'],
+    ['li', '2. 서버 또는 통신 장애가 발생한 경우'],
+    ['li', '3. 천재지변, 정전 등 불가항력적인 사유가 발생한 경우'],
+    ['li', '4. 기타 정상적인 서비스 제공이 어렵다고 판단되는 경우'],
+    ['p', '③ 의원은 가능한 범위에서 서비스 변경 또는 중단에 관한 내용을 사전에 안내하도록 노력합니다.']
+  ]],
+  ['제8조', '이용자의 의무', [
+    ['p', '이용자는 홈페이지 이용 시 다음 각 호의 행위를 해서는 안 됩니다.'],
+    ['li', '1. 허위 정보를 입력하거나 타인의 정보를 도용하는 행위'],
+    ['li', '2. 홈페이지의 정상적인 운영을 방해하는 행위'],
+    ['li', '3. 홈페이지 또는 시스템에 무단으로 접근하는 행위'],
+    ['li', '4. 악성코드, 프로그램 등을 배포하거나 시스템에 장애를 발생시키는 행위'],
+    ['li', '5. 의원 또는 제3자의 지식재산권 및 기타 권리를 침해하는 행위'],
+    ['li', '6. 관련 법령 또는 공공질서 및 미풍양속에 위반되는 행위'],
+    ['li', '7. 기타 의원이 부적절하다고 판단하는 서비스 악용 행위']
+  ]],
+  ['제9조', '개인정보 보호', [
+    ['p', '① 의원은 서비스 제공을 위해 필요한 범위 내에서 이용자의 개인정보를 수집·이용할 수 있습니다.'],
+    ['p', '② 개인정보의 수집 항목, 이용 목적, 보유 및 이용기간, 제3자 제공 및 처리위탁 등에 관한 구체적인 사항은 홈페이지에 별도로 게시된 「개인정보처리방침」 및 개인정보 수집·이용 동의 내용을 따릅니다.'],
+    ['p', '③ 의원은 관련 법령에 따라 이용자의 개인정보를 안전하게 관리하기 위해 필요한 보호조치를 시행합니다.']
+  ]],
+  ['제10조', '마케팅 정보의 수신', [
+    ['p', '① 의원은 이용자가 별도로 동의한 경우에 한하여 이벤트, 혜택, 새로운 시술 및 기타 광고성 정보를 문자메시지, 전화 또는 기타 전자적 방법으로 제공할 수 있습니다.'],
+    ['p', '② 마케팅 정보 수신 동의는 선택사항이며, 동의하지 않더라도 기본적인 홈페이지 및 예약 서비스 이용에는 제한이 없습니다.'],
+    ['p', '③ 이용자는 언제든지 마케팅 정보 수신 동의를 철회할 수 있습니다.']
+  ]],
+  ['제11조', '게시물 및 콘텐츠의 저작권', [
+    ['p', '① 홈페이지에 게시된 문구, 이미지, 영상, 디자인, 로고, 의료 콘텐츠 및 기타 저작물에 관한 권리는 의원 또는 해당 권리자에게 있습니다.'],
+    ['p', '② 이용자는 의원 또는 권리자의 사전 동의 없이 홈페이지의 콘텐츠를 영리 목적으로 복제, 배포, 수정, 전송 또는 이용할 수 없습니다.'],
+    ['p', '③ 이용자가 홈페이지에 게시하거나 제공한 콘텐츠가 제3자의 권리를 침해하는 경우 그에 따른 책임은 해당 이용자에게 있을 수 있습니다.']
+  ]],
+  ['제12조', '면책 및 책임의 제한', [
+    ['p', '① 의원은 천재지변, 통신 장애, 시스템 장애 등 합리적으로 통제하기 어려운 사유로 서비스를 제공할 수 없는 경우 관련 법령이 허용하는 범위에서 책임이 제한될 수 있습니다.'],
+    ['p', '② 홈페이지에 제공되는 의료정보는 일반적인 정보 제공을 위한 것으로 개인별 의료적 판단이나 진단을 대신하지 않습니다.'],
+    ['p', '③ 의원은 이용자가 홈페이지에 잘못된 정보를 입력하거나 이용자의 귀책사유로 발생한 문제에 대하여 의원의 고의 또는 과실이 없는 경우 책임을 부담하지 않습니다.'],
+    ['p', '④ 본 조의 내용은 관계 법령에 따른 의원의 책임을 배제하거나 부당하게 제한하는 것으로 해석되지 않습니다.']
+  ]],
+  ['제13조', '약관 외 준칙', [
+    ['p', '본 약관에서 정하지 않은 사항은 「의료법」, 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관계 법령 및 일반적인 상관례에 따릅니다.']
+  ]],
+  ['제14조', '분쟁 해결 및 관할', [
+    ['p', '① 의원과 이용자는 서비스 이용과 관련하여 발생한 분쟁을 원만하게 해결하기 위해 상호 성실하게 협의합니다.'],
+    ['p', '② 협의로 해결되지 않는 분쟁에 대해서는 대한민국 법령을 적용하며, 관할법원은 관련 법령에서 정하는 바에 따릅니다.']
+  ]]
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const articles = ARTICLES.map(([no, title, body], i) => ({
+      id: 'art-' + (i + 1),
+      heading: no + ' (' + title + ')',
+      body: body.map(([kind, text], k) => ({ text, style: (kind === 'li' ? LI : P) + (k === 0 ? ';margin-top:16px' : '') }))
+    }));
+    return {
+      articles,
+      toc: ARTICLES.map(([no, title], i) => ({ no: no.replace('제', '').replace('조', ''), title, href: '#art-' + (i + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

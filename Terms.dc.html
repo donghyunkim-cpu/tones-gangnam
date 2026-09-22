@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Terms of Service — TONE's Clinic Gangnam</title>
+<meta name="description" content="Terms of service for the TONE’s Clinic Gangnam website and online services. Effective 22 September 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Hanken+Grotesk:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F3EC;-webkit-font-smoothing:antialiased}
+a{color:#1C1A18;text-decoration:none}
+a:hover{color:#A8103E}
+::selection{background:#A8103E;color:#F7F3EC}
+::-webkit-scrollbar{height:5px;width:6px}
+::-webkit-scrollbar-thumb{background:#DFD4C4;border-radius:999px}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes lineUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes ruleGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
+</style>
+</helmet>
+
+<div style="font-family:'Hanken Grotesk',system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;animation:pageIn .46s cubic-bezier(.16,1,.3,1) both;background:#F7F3EC;color:#1C1A18;overflow-x:clip;letter-spacing:.005em;word-break:keep-all">
+
+  <dc-import name="Site Nav" theme="light" active="" hint-size="100%,64px" style="position:sticky;top:0;z-index:80"></dc-import>
+
+  <section data-screen-label="Hero" style="padding:clamp(44px,6vw,88px) clamp(20px,5vw,64px) clamp(26px,3vw,42px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <p style="margin:0 0 18px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6C645B">Terms of service</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,60px);align-items:end">
+        <h1 style="margin:0;font-weight:200;font-size:clamp(34px,5vw,80px);line-height:1.02;letter-spacing:-.035em;max-width:9ch;overflow:hidden;padding-bottom:.24em;margin-bottom:-.24em"><span style="display:block;animation:lineUp 1.2s cubic-bezier(.16,1,.3,1) .1s both">Terms of Service</span></h1>
+        <div style="animation:rise 1s cubic-bezier(.16,1,.3,1) .35s both">
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#4A443D;max-width:46ch">These terms govern the use of the website and online services operated by TONE’s Clinic Gangnam, and set out the rights, obligations and responsibilities of the clinic and the user.</p>
+          <p style="margin:14px 0 0;font-size:13.5px;color:#6C645B">Effective 22 September 2026</p>
+        </div>
+      </div>
+      <div style="height:1px;background:#E3DACD;margin-top:clamp(28px,3.2vw,46px);transform-origin:left;animation:ruleGrow 1.4s cubic-bezier(.16,1,.3,1) .5s both"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Terms" style="padding:0 clamp(20px,5vw,64px) clamp(60px,7vw,116px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,72px);align-items:start">
+
+      <nav aria-label="Articles" style="position:sticky;top:clamp(78px,9vw,112px)">
+        <p style="margin:0 0 16px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">Articles</p>
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="14">
+          <a href="{{ t.href }}" style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #E3DACD;font-size:13.5px;color:#4A443D;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#A8103E"><span style="color:#6C645B;flex:0 0 auto">{{ t.no }}</span><span>{{ t.title }}</span></a>
+        </sc-for>
+      </nav>
+
+      <div style="max-width:70ch">
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="14">
+          <section id="{{ a.id }}" style="padding-top:clamp(26px,3vw,40px);scroll-margin-top:96px">
+            <h2 style="margin:0;font-weight:300;font-size:clamp(20px,2vw,28px);line-height:1.3;letter-spacing:-.02em">{{ a.heading }}</h2>
+            <sc-for list="{{ a.body }}" as="b" hint-placeholder-count="3">
+              <p style="{{ b.style }}">{{ b.text }}</p>
+            </sc-for>
+          </section>
+        </sc-for>
+
+        <section style="margin-top:clamp(40px,5vw,72px);background:#EDE5D9;border-radius:8px;padding:clamp(24px,2.8vw,38px)">
+          <h2 style="margin:0;font-weight:300;font-size:clamp(20px,2vw,28px);letter-spacing:-.02em">Addendum</h2>
+          <p style="margin:14px 0 0;font-size:15px;line-height:1.8;color:#4A443D">These terms take effect on 22 September 2026.</p>
+          <div style="margin-top:26px;padding-top:20px;border-top:1px solid #DFD4C4">
+            <p style="margin:0 0 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6C645B">TONE's Clinic Gangnam</p>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">Representative</span><span style="font-size:14.5px">Yang Jae-young (Dr. Jay Yang)</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">Business reg. no.</span><span style="font-size:14.5px">480-71-00623</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">Address</span><span style="font-size:14.5px">9F, 403 Gangnam-daero, Seocho-gu, Seoul</span></div>
+            <div style="display:flex;gap:16px;padding:10px 0;border-top:1px solid #DFD4C4"><span style="font-size:13.5px;color:#6C645B;flex:0 0 96px">Telephone</span><a href="tel:+82-2-6953-2667" style="font-size:14.5px">02-6953-2667</a></div>
+          </div>
+        </section>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(30px,3.4vw,48px)">
+          <a href="Privacy Consent Modal.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Privacy &amp; consent <span>→</span></a>
+          <a href="Non-covered Fees.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">Non-covered treatment fees <span>→</span></a>
+          <a href="Terms Ko.dc.html" lang="ko" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border:1px solid #DFD4C4;border-radius:999px;font-size:13.5px;transition:background .28s cubic-bezier(.16,1,.3,1),color .28s cubic-bezier(.16,1,.3,1),border-color .28s cubic-bezier(.16,1,.3,1),gap .28s cubic-bezier(.16,1,.3,1)" style-hover="background:#1C1A18;color:#F7F3EC;border-color:#1C1A18;gap:16px">한국어 원문 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Footer" style="background:#1C1A18;color:#F7F3EC;padding:clamp(52px,6vw,88px) clamp(20px,5vw,64px) clamp(48px,5vw,76px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center">
+      <img src="assets/logo-h-wh.png" alt="TONE's CLINIC" style="height:16px;width:auto">
+      <a href="Tones Gangnam Home.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Home</a>
+      <a href="Treatments.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Treatments</a>
+      <a href="Book.dc.html" style="font-size:13.5px;color:rgba(247,243,236,.78);transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Request a consultation</a>
+      <a href="tel:+82-2-6953-2667" style="font-size:13.5px;color:rgba(247,243,236,.78);margin-left:auto;transition:color .28s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">02-6953-2667</a>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const P  = 'margin:14px 0 0;font-size:15px;line-height:1.85;color:#4A443D';
+const LI = 'margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.8;color:#4A443D;text-indent:-20px';
+
+const ARTICLES = [
+  ['Article 1', 'Purpose', [
+    ['p', 'These terms set out the rights, obligations and responsibilities of TONE\u2019s Clinic Gangnam (the "Clinic") and the user in connection with the use of the website and online services (the "Services") operated by the Clinic, together with any other matters that require definition.']
+  ]],
+  ['Article 2', 'Definitions', [
+    ['p', 'The terms used in this agreement are defined as follows.'],
+    ['li', '1. "Website" means the online site operated by the Clinic to provide users with medical information, treatment information, consultation and appointment services.'],
+    ['li', '2. "User" means any person who accesses this website and uses the Services provided by the Clinic under these terms.'],
+    ['li', '3. "Appointment service" means the service through which a user may request a consultation or treatment via the website.'],
+    ['li', '4. Terms not separately defined here follow the relevant statutes and general commercial practice.']
+  ]],
+  ['Article 3', 'Effect and amendment', [
+    ['p', '\u2460 These terms take effect once posted on the website or otherwise notified to users.'],
+    ['p', '\u2461 The Clinic may amend these terms within the limits permitted by law.'],
+    ['p', '\u2462 Where the terms are amended, the effective date and the substance of the change are announced on the website in advance. Where a change is materially disadvantageous to users, notice is given by the method and within the period required by law.'],
+    ['p', '\u2463 Amended terms apply to use of the Services on or after the stated effective date.']
+  ]],
+  ['Article 4', 'Provision of services', [
+    ['p', 'The Clinic may provide the following services through the website.'],
+    ['li', '1. Information about the Clinic and its medical staff'],
+    ['li', '2. Information about consultations and treatments'],
+    ['li', '3. Non-covered treatment fees and event information'],
+    ['li', '4. Online consultation and appointment requests'],
+    ['li', '5. Receipt of enquiries and consultation requests'],
+    ['li', '6. Notices and editorial content'],
+    ['li', '7. Any other service determined by the Clinic'],
+    ['p', 'Medical and treatment information published on the website is provided for general information only and does not replace direct examination or consultation by a doctor.']
+  ]],
+  ['Article 5', 'Appointment service', [
+    ['p', '\u2460 Users may request a consultation or treatment appointment through the website following the procedure set by the Clinic.'],
+    ['p', '\u2461 An appointment request submitted through the website does not necessarily constitute a confirmed treatment or procedure; it may be finalised only after the Clinic\u2019s confirmation and guidance process.'],
+    ['p', '\u2462 Appointment schedules may change according to the doctor\u2019s clinical schedule and the operating circumstances of the Clinic, and the Clinic may notify the user separately where necessary.'],
+    ['p', '\u2463 A user who wishes to change or cancel an appointment may do so by the method indicated by the Clinic.']
+  ]],
+  ['Article 6', 'Medical information', [
+    ['p', '\u2460 Information published on the website about treatments, therapies, medical devices and related matters is general information intended to aid understanding.'],
+    ['p', '\u2461 Even for the same treatment, suitability and outcome may differ according to individual skin condition, general health, medical history, treatment area and other factors.'],
+    ['p', '\u2462 Specific diagnosis, treatment method, suitability and expected outcome must be determined through consultation and examination with a doctor.'],
+    ['p', '\u2463 Users must not make medical decisions, or discontinue or alter treatment, on the basis of website content alone, and should seek professional advice from a doctor where necessary.']
+  ]],
+  ['Article 7', 'Change and suspension of services', [
+    ['p', '\u2460 The Clinic may change all or part of the Services where there is an operational or technical need to do so.'],
+    ['p', '\u2461 Provision of the Services may be temporarily restricted or suspended in any of the following cases.'],
+    ['li', '1. Inspection, maintenance or replacement of the website or systems is required'],
+    ['li', '2. A server or communications failure occurs'],
+    ['li', '3. A force majeure event such as a natural disaster or power failure occurs'],
+    ['li', '4. Normal provision of the Services is otherwise judged to be impracticable'],
+    ['p', '\u2462 The Clinic will endeavour, so far as possible, to give advance notice of any change or suspension of the Services.']
+  ]],
+  ['Article 8', 'Obligations of the user', [
+    ['p', 'Users must not do any of the following when using the website.'],
+    ['li', '1. Entering false information or misappropriating the information of another person'],
+    ['li', '2. Interfering with the normal operation of the website'],
+    ['li', '3. Gaining unauthorised access to the website or its systems'],
+    ['li', '4. Distributing malicious code or programs, or causing system failures'],
+    ['li', '5. Infringing the intellectual property or other rights of the Clinic or a third party'],
+    ['li', '6. Acting in breach of relevant statutes, public order or good morals'],
+    ['li', '7. Any other misuse of the Services judged inappropriate by the Clinic']
+  ]],
+  ['Article 9', 'Protection of personal information', [
+    ['p', '\u2460 The Clinic may collect and use a user\u2019s personal information to the extent necessary to provide the Services.'],
+    ['p', '\u2461 Specific matters such as the items collected, the purpose of use, the retention and use period, provision to third parties and outsourcing of processing follow the Privacy Policy and the consent to collection and use of personal information published separately on the website.'],
+    ['p', '\u2462 The Clinic implements the protective measures required by law to manage users\u2019 personal information securely.']
+  ]],
+  ['Article 10', 'Receipt of marketing information', [
+    ['p', '\u2460 The Clinic may provide information on events, benefits, new treatments and other advertising by text message, telephone or other electronic means, only where the user has separately consented.'],
+    ['p', '\u2461 Consent to receive marketing information is optional; declining does not restrict use of the website or the appointment service.'],
+    ['p', '\u2462 Users may withdraw consent to receive marketing information at any time.']
+  ]],
+  ['Article 11', 'Copyright in posts and content', [
+    ['p', '\u2460 Rights in the text, images, video, design, logos, medical content and other works published on the website belong to the Clinic or the respective rights holder.'],
+    ['p', '\u2461 Users may not reproduce, distribute, modify, transmit or otherwise use website content for commercial purposes without the prior consent of the Clinic or the rights holder.'],
+    ['p', '\u2462 Where content posted or supplied to the website by a user infringes the rights of a third party, responsibility may rest with that user.']
+  ]],
+  ['Article 12', 'Disclaimer and limitation of liability', [
+    ['p', '\u2460 Where the Clinic is unable to provide the Services for reasons beyond its reasonable control, such as natural disaster, communications failure or system failure, its liability may be limited to the extent permitted by law.'],
+    ['p', '\u2461 Medical information provided on the website is for general information and does not substitute for individual medical judgement or diagnosis.'],
+    ['p', '\u2462 The Clinic is not liable for problems arising from a user entering incorrect information on the website, or otherwise attributable to the user, where there is no intent or negligence on the part of the Clinic.'],
+    ['p', '\u2463 Nothing in this article is to be construed as excluding or unreasonably limiting the Clinic\u2019s liability under applicable law.']
+  ]],
+  ['Article 13', 'Matters not provided for', [
+    ['p', 'Matters not provided for in these terms follow the Medical Service Act, the Personal Information Protection Act, the Act on Promotion of Information and Communications Network Utilisation and Information Protection, other relevant statutes, and general commercial practice.']
+  ]],
+  ['Article 14', 'Dispute resolution and jurisdiction', [
+    ['p', '\u2460 The Clinic and the user will consult with each other in good faith to resolve amicably any dispute arising in connection with use of the Services.'],
+    ['p', '\u2461 Disputes not resolved by consultation are governed by the laws of the Republic of Korea, and the competent court is determined in accordance with the relevant statutes.']
+  ]]
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const articles = ARTICLES.map(([no, title, body], i) => ({
+      id: 'art-' + (i + 1),
+      heading: no + ' · ' + title,
+      body: body.map(([kind, text], k) => ({ text, style: (kind === 'li' ? LI : P) + (k === 0 ? ';margin-top:16px' : '') }))
+    }));
+    return {
+      articles,
+      toc: ARTICLES.map(([no, title], i) => ({ no: no.replace('Article ', ''), title, href: '#art-' + (i + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
