@@ -67,6 +67,13 @@ details[open]::details-content{block-size:auto;opacity:1;content-visibility:visi
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
 @media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
 @media (max-width:759px){[data-tap]{position:relative}[data-tap]::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}}
+@media (max-width:999px){
+[data-hero-sec]{height:auto !important}
+[data-hero-frame]{position:relative !important;height:auto !important;min-height:100svh;overflow:visible !important}
+[data-hero-frame]>video,[data-hero-frame]>img,[data-hero-frame]>div:not([data-hero-pad]){animation:none !important}
+[data-hero-pad]{position:relative !important;inset:auto !important;min-height:100svh;animation:none !important;opacity:1 !important;transform:none !important;overflow:visible !important;padding-top:92px !important;padding-bottom:48px !important}
+[data-hero-cue]{display:none !important}
+}
 </style>
 <script src="count-up.js"></script>
 </helmet>
@@ -75,9 +82,9 @@ details[open]::details-content{block-size:auto;opacity:1;content-visibility:visi
 
   <dc-import name="Site Nav" theme="light" active="filler" hint-size="100%,64px" style="position:sticky;top:0;z-index:80"></dc-import>
 
-  <section data-screen-label="Hero" style="position:relative;height:160dvh">
-    <div data-sticky-col style="position:sticky;top:0;height:100dvh;overflow:hidden;background:#1C1A18">
-      <img fetchpriority="high" decoding="async" src="assets/tx-profile.jpg" alt="Facial structure study" style="background-image:url(assets/thumb-tx-profile.jpg);background-size:cover;background-position:center;will-change:opacity;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 26%;opacity:.72;animation:softIn .9s ease both;animation-timeline:view();animation-range:cover 0% cover 100%">
+  <section data-screen-label="Hero" data-hero-sec style="position:relative;height:160dvh">
+    <div data-hero-frame style="position:sticky;top:0;height:100dvh;overflow:hidden;background:#1C1A18">
+      <img fetchpriority="high" decoding="async" src="assets/tx-profile.jpg" alt="Facial structure study" style="background-image:url(assets/thumb-tx-profile.jpg);background-size:cover;background-position:center;will-change:opacity;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 26%;opacity:.72;animation:softIn .9s ease both;animation-timeline:view();animation-range:entry 0% cover 30%">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(18,16,14,.9) 6%,rgba(18,16,14,.34) 46%,rgba(18,16,14,.6))"></div>
       <div data-hero-pad style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,5vw,64px)">
         <div style="max-width:1200px;width:100%;margin:0 auto">

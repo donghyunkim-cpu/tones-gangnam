@@ -62,6 +62,13 @@ a:hover{color:#A8103E}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important}}
 @media (max-width:999px){[data-sticky-col]{position:static !important;top:auto !important}}
 @media (max-width:759px){[data-tap]{position:relative}[data-tap]::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}}
+@media (max-width:999px){
+[data-hero-sec]{height:auto !important}
+[data-hero-frame]{position:relative !important;height:auto !important;min-height:100svh;overflow:visible !important}
+[data-hero-frame]>video,[data-hero-frame]>img,[data-hero-frame]>div:not([data-hero-pad]){animation:none !important}
+[data-hero-pad]{position:relative !important;inset:auto !important;min-height:100svh;animation:none !important;opacity:1 !important;transform:none !important;overflow:visible !important;padding-top:92px !important;padding-bottom:48px !important}
+[data-hero-cue]{display:none !important}
+}
 </style>
 <script src="count-up.js"></script>
 </helmet>
@@ -80,8 +87,8 @@ a:hover{color:#A8103E}
 
   <dc-import name="Site Nav" theme="over-dark" active="" hint-size="100%,64px" style="position:fixed;top:0;left:0;right:0;z-index:80"></dc-import>
 
-  <section id="top" data-screen-label="Hero film" style="position:relative;height:190dvh">
-    <div data-sticky-col style="position:sticky;top:0;height:100dvh;overflow:hidden;background:#1C1A18">
+  <section id="top" data-screen-label="Hero film" data-hero-sec style="position:relative;height:190dvh">
+    <div data-hero-frame style="position:sticky;top:0;height:100dvh;overflow:hidden;background:#1C1A18">
       <video ref="{{ videoRef }}" src="assets/hero.mp4" poster="assets/space-5.jpg" autoPlay="{{ yes }}" muted="{{ yes }}" loop="{{ yes }}" playsInline="{{ yes }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:heroZoom linear both;animation-timeline:scroll();animation-range:0 110vh"></video>
       <div style="position:absolute;inset:0;background:#141210;opacity:.42;animation:heroDim linear both;animation-timeline:scroll();animation-range:0 110vh"></div>
 
@@ -140,7 +147,7 @@ a:hover{color:#A8103E}
         </div>
 </div>
 
-      <div style="position:absolute;left:50%;bottom:{{ cueBottom }};transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:cueOut linear both;animation-timeline:scroll();animation-range:0 30vh">
+      <div data-hero-cue style="position:absolute;left:50%;bottom:{{ cueBottom }};transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:cueOut linear both;animation-timeline:scroll();animation-range:0 30vh">
         <span style="font-size:9.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85)">Scroll</span>
         <span style="display:block;width:1px;height:34px;background:linear-gradient(to bottom,rgba(255,255,255,.85),transparent)"></span>
       </div>
@@ -187,7 +194,7 @@ a:hover{color:#A8103E}
   </section>
 
   <section data-screen-label="Photo band" style="position:relative;height:clamp(420px,72vh,760px);overflow:hidden;background:#1C1A18">
-    <img decoding="async" src="assets/space-3.jpg" alt="Tones Clinic lounge" style="will-change:opacity;background-image:url(assets/thumb-space-3.jpg);background-size:cover;background-position:center;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:softIn .9s ease both;animation-timeline:view();animation-range:cover 0% cover 100%">
+    <img decoding="async" src="assets/space-3.jpg" alt="Tones Clinic lounge" style="will-change:opacity;background-image:url(assets/thumb-space-3.jpg);background-size:cover;background-position:center;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:softIn .9s ease both;animation-timeline:view();animation-range:entry 0% cover 30%">
     <div style="position:absolute;inset:0;background:#141210;opacity:.34"></div>
     <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:clamp(24px,4vw,56px)">
       <div style="max-width:1200px;width:100%;margin:0 auto">
