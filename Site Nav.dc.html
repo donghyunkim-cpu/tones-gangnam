@@ -18,6 +18,10 @@ img{max-width:100%}
 @media (min-width:1080px){[data-nav-narrow]{display:none !important}}
 @media (max-width:639px){[data-nav-tablet-book]{display:none !important}}
 @media (max-width:1079px){[data-nav-narrow] a,[data-nav-narrow] button{min-height:44px}}
+@media (max-width:419px){[data-nav-brand]{gap:9px !important}[data-nav-sign]{font-size:15.5px !important;padding-left:9px !important}}
+@media (max-width:379px){[data-nav-brand]{gap:8px !important}[data-nav-sign]{font-size:14.5px !important;padding-left:8px !important}}
+@media (max-width:359px){[data-nav-sign]{display:none !important}}
+@media (min-width:1080px) and (max-width:1279px){[data-nav-sign]{display:none !important}}
 @keyframes navDrop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 @keyframes navFade{from{opacity:0}to{opacity:1}}
 @keyframes contactIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
@@ -28,10 +32,10 @@ img{max-width:100%}
 
   <header onMouseLeave="{{ closeDrop }}" style="{{ barStyle }}">
     <div style="max-width:1720px;margin:0 auto;padding:0 clamp(16px,3vw,40px);height:64px;display:flex;align-items:center;gap:clamp(14px,2.4vw,40px)">
-      <a href="Tones-Gangnam-Home.dc.html" style="flex:0 0 auto;display:block"><img decoding="async" fetchpriority="high" src="{{ logoSrc }}" alt="TONE's CLINIC" style="height:17px;width:auto;display:block"></a>
+      <a data-nav-brand href="Tones-Gangnam-Home.dc.html" style="flex:0 0 auto;display:flex;align-items:center;gap:12px;text-decoration:none"><img decoding="async" fetchpriority="high" src="{{ logoSrc }}" alt="TONE's CLINIC" style="height:17px;width:auto;display:block"><span data-nav-sign style="{{ signStyle }}">Dr. Jay Yang</span></a>
 
       <nav data-nav-wide style="display:flex;align-items:center;gap:clamp(12px,1.7vw,26px);margin-left:clamp(8px,2vw,28px);flex-wrap:nowrap">
-          <a href="Doctor.dc.html" style="{{ linkDoctor }}">Doctor</a>
+          <a href="Doctor.dc.html" style="{{ linkDoctor }}">Dr. Yang</a>
           <button onMouseEnter="{{ openDrop }}" onClick="{{ toggleDrop }}" style="{{ linkTreat }}">Treatments <span style="{{ caretStyle }}"></span></button>
           <a href="Results.dc.html" style="{{ linkResults }}">Results</a>
           <a href="International.dc.html" style="{{ linkIntl }}">International</a>
@@ -44,11 +48,11 @@ img{max-width:100%}
             <button onClick="{{ setKo }}" title="{{ koTitle }}" style="{{ koPill }}">KO</button>
           </div>
           <button onClick="{{ openContact }}" style="{{ contactStyle }}">Contact</button>
-          <a href="Book.dc.html" style="{{ bookStyle }}">Enquire <span>→</span></a>
+          <a href="Book.dc.html" style="{{ bookStyle }}">Ask Dr. Yang <span>→</span></a>
       </div>
 
       <div data-nav-narrow style="display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto">
-        <a data-nav-tablet-book href="Book.dc.html" style="{{ bookStyle }}">Enquire <span>→</span></a>
+        <a data-nav-tablet-book href="Book.dc.html" style="{{ bookStyle }}">Ask Dr. Yang <span>→</span></a>
         <button onClick="{{ toggleMenu }}" style="{{ menuBtn }}">
           <span style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">Menu</span>
           <span style="display:flex;flex-direction:column;gap:3.5px"><span style="{{ barLine }}"></span><span style="{{ barLine }}"></span></span>
@@ -128,7 +132,7 @@ img{max-width:100%}
       </div>
       <p style="margin:28px 0 12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,243,236,.6)">The clinic</p>
       <nav style="display:flex;flex-direction:column">
-        <a href="Doctor.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Doctor</a>
+        <a href="Doctor.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Dr. Jay Yang</a>
         <a href="Results.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Results</a>
         <a href="International.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">International</a>
         <a href="Reviews.dc.html" onClick="{{ toggleMenu }}" style="font-weight:200;font-size:30px;letter-spacing:-.025em;padding:12px 0;border-top:1px solid rgba(247,243,236,.16);color:#F7F3EC">Reviews</a>
@@ -301,6 +305,10 @@ class Component extends DCLogic {
       dropOpen,
       menuOpen,
       logoSrc: onDark ? 'assets/logo-h-wh.png' : 'assets/logo-h.png',
+      // the doctor's name sits beside the clinic mark, set in his voice face (Cormorant italic)
+      signStyle: 'display:block;padding-left:12px;border-left:1px solid ' + (onDark ? 'rgba(255,255,255,.34)' : 'rgba(28,26,24,.24)') + ';'
+        + "font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:18px;line-height:17px;"
+        + 'letter-spacing:.005em;white-space:nowrap;color:' + ink + ';transition:color .45s ease',
       barStyle: 'position:relative;background:' + bg + ';backdrop-filter:' + blur
         + ';-webkit-backdrop-filter:' + blur + ';border-bottom:' + border
         + ';transition:background .45s ease,border-color .45s ease',
