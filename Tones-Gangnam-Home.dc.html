@@ -489,7 +489,8 @@ class Component extends DCLogic {
     super(p);
     this.mq = window.matchMedia ? window.matchMedia('(max-width: 759px)') : null;
     this.mqTight = window.matchMedia ? window.matchMedia('(max-width: 999px)') : null;
-    this.mqShort = window.matchMedia ? window.matchMedia('(max-height: 659px)') : null;
+    // desktop hero stacks copy + promo card (~755px) inside 76/104px padding, so under ~940px tall it rises behind the header
+    this.mqShort = window.matchMedia ? window.matchMedia('(max-height: 659px), (min-width: 1000px) and (max-height: 939px)') : null;
     if (this.mq) {
       this.state = { ...this.state, narrow: this.mq.matches };
       if ('tight' in this.state) this.state.tight = this.mqTight ? this.mqTight.matches : false;
@@ -500,6 +501,8 @@ class Component extends DCLogic {
     this.onResize = () => {
       const n = this.mq ? this.mq.matches : (document.documentElement.clientWidth || window.innerWidth) < 760;
       if (n !== this.state.narrow) this.setState({ narrow: n, menuOpen: false });
+      const sh = this.mqShort ? this.mqShort.matches : false;
+      if (sh !== this.state.short) this.setState({ short: sh });
     };
     this.onKey = (e) => { if (e.key === 'Escape') this.setState({ lightboxSrc: null, menuOpen: false }); };
 
